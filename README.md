@@ -67,6 +67,12 @@ To remove all build products, including the PDF:
 latexmk -C main.tex
 ```
 
+## VS Code / LaTeX Workshop
+
+Open this repository folder in VS Code. The workspace settings in `.vscode/settings.json` select latexmk with pdfLaTeX and Biber, enable SyncTeX, and tell the PDF viewer to use `output/`. With `main.tex` or a section file active, run **LaTeX Workshop: Build LaTeX project** (Option-Command-B on macOS).
+
+The settings force the configured recipe because Workshop otherwise interprets the TeXShop `TS-program = pdflatexmk` comment as an executable and fails with `spawn pdflatexmk ENOENT`. The comment remains available for TeXShop.
+
 ## TeXShop
 
 Open `main.tex` in TeXShop and choose **Typeset** (Command-T). Its magic comment selects the bundled `pdflatexmk` engine, which runs latexmk and Biber as needed. If that engine is unavailable, activate `pdflatexmk.engine` from `~/Library/TeXShop/Engines/Inactive/Latexmk/` into `~/Library/TeXShop/Engines/` and restart TeXShop.
