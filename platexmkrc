@@ -1,0 +1,5 @@
+# TeXShop's pdflatexmk engine loads this after its bundled configuration.
+# Restore the shared project settings, including output/ and Biber.
+do './.latexmkrc' or die "Cannot load .latexmkrc: $@ $!";
+# Enable source/PDF synchronization for TeXShop.
+$pdflatex = 'pdflatex -synctex=1 -interaction=nonstopmode -halt-on-error -file-line-error %O %S';

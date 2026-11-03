@@ -35,3 +35,26 @@
 *.swp
 *.tmp
 *~
+
+# Generated manuscript output (retain the directory placeholder)
+/output/*
+!/output/.gitkeep
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Additional LaTeX and temporary files
+*.synctex
+*.spl
+*.loa
+*.lol
+*.thm
+*.tdo
+*.bak*
+*.swo
+.DS_Store
