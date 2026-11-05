@@ -8,6 +8,13 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \graphicspath{{figures/}{figures/lifecycle/}{figures/risk/}{figures/conservation/}{figures/framework/}}
+\usepackage{xcolor}
+\usepackage{tabularray}
+\definecolor{freshwater}{HTML}{E2EFDA}
+\definecolor{estuary}{HTML}{FFF2CC}
+\definecolor{marine}{HTML}{DDEBF7}
+\definecolor{headerfill}{HTML}{DCE6EF}
+\definecolor{grid}{HTML}{D9D9D9}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{longtable}
@@ -16,7 +23,9 @@
 \usepackage{enumitem}
 \usepackage{csquotes}
 \usepackage[backend=biber,style=authoryear,sorting=nyt,giveninits=true,uniquename=init]{biblatex}
+\DeclareLabeldate{\field{date}\field{year}\literal{nodate}}
 \addbibresource{references.bib}
+\usepackage{xurl}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{pdftitle={Are We Adequately Accounting for Marine Risk in Steelhead Conservation?}}
 \usepackage[nameinlink,noabbrev]{cleveref}

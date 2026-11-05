@@ -1,3 +1,57 @@
-% !TEX root = ../main.tex
-% TODO: Map life stages to habitats, risk categories, and verified evidence.
-% Add a captioned, labeled table after evidence and structure are established.
+\begingroup\sffamily\fontsize{9}{10.6}\selectfont
+\begin{tblr}{
+colspec={X[1.4,l,m] X[3.25,l,m] X[1.5,l,m] X[1.05,l,m]},
+width=\linewidth, colsep=4pt, rowsep=3pt,
+hlines={0.4pt,grid}, vlines={0.4pt,grid},
+row{1}={font=\bfseries,bg=headerfill},
+cell{2}{4} = {r=3}{},
+cell{2}{4} = {freshwater},
+cell{4}{1} = {r=3}{},
+cell{4}{2} = {r=3}{},
+cell{4}{3} = {r=3}{},
+cell{5}{4} = {estuary},
+cell{6}{4} = {r=4}{},
+cell{6}{4} = {marine},
+cell{9}{1} = {r=3}{},
+cell{9}{2} = {r=3}{},
+cell{9}{3} = {r=3}{},
+cell{10}{4} = {estuary},
+cell{11}{4} = {r=3}{},
+cell{11}{4} = {freshwater},
+cell{13}{1} = {r=2}{},
+cell{13}{2} = {r=2}{},
+cell{13}{3} = {r=2}{},
+cell{14}{4} = {r=2}{},
+cell{14}{4} = {estuary},
+cell{15}{1} = {r=2}{},
+cell{15}{2} = {r=2}{},
+cell{15}{3} = {r=2}{},
+cell{16}{4} = {r=2}{},
+cell{16}{4} = {marine},
+cell{17}{1} = {r=3}{},
+cell{17}{2} = {r=3}{},
+cell{17}{3} = {r=3}{},
+cell{18}{4} = {estuary},
+cell{19}{4} = {freshwater},
+}
+Life Stage & Summary of Life Stage & Mortality Range & Environment \\
+\textbf{Egg / Alevin / Fry} & Embryo develops in stream gravel and hatches into a yolk-sac-fed alevin. After yolk absorption, the fish emerges as an actively feeding fry, before developing the recognizable parr form. &  & Freshwater \\
+\textbf{Parr} & Freshwater-rearing juvenile, typically marked by vertical parr bars; ends as the fish begins smoltification and downstream migration toward salt water. &  &  \\
+\textbf{Smolt} & Juvenile undergoing the physiological, morphological, and behavioral transition for seawater entry; begins in freshwater and spans the downstream/estuarine transition. &  &  \\
+ &  &  & Estuary \\
+ &  &  & Marine \\
+\textbf{Early Marine Juvenile} & Steelhead during initial marine residence. For this analysis, this stage extends from ocean entry through the end of the first marine winter; this endpoint is an analytical choice, not a universal biological boundary \parencite{myers2018steelhead}. &  &  \\
+\textbf{Ocean-rearing Steelhead} & Steelhead feeding and growing at sea after the early marine period and before initiating the return spawning migration; reproductive maturity is not implied. &  &  \\
+\textbf{Returning Adult} & Adult returning from the ocean through marine and estuarine waters to freshwater spawning habitat. Includes migration, holding, and maturation before spawning; ends when spawning begins. &  &  \\
+ &  &  & Estuary \\
+ &  &  & Freshwater \\
+\textbf{Spawner} & Steelhead actively reproducing in freshwater spawning habitat, including redd construction, courtship, and egg and milt deposition. Ends when spawning is complete. &  &  \\
+\textbf{Post-spawning Freshwater Holding and Downstream Migration} & Post-spawn adult that survived spawning and remains in, or is migrating downstream through, freshwater toward the ocean. &  &  \\
+ &  &  & Estuary \\
+\textbf{Post-spawning Ocean Recovery} & Post-spawn survivor that has returned to salt water, where it recovers condition and may prepare for a subsequent spawning migration. &  &  \\
+ &  &  & Marine \\
+\textbf{Returning Repeat Spawner} & Previously spawned steelhead returning for another spawning attempt. Includes the marine--estuary return journey, freshwater migration, holding, and maturation; ends when spawning begins. &  &  \\
+ &  &  & Estuary \\
+ &  &  & Freshwater \\
+\end{tblr}
+\endgroup

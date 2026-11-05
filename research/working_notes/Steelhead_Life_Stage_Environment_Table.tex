@@ -1,0 +1,102 @@
+% Standalone document. Compile with XeLaTeX (twice for hyperlinks).
+% All wording and source hyperlinks are retained from the DOCX.
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{tabularray}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=black}
+\definecolor{freshwater}{HTML}{E2EFDA}
+\definecolor{estuary}{HTML}{FFF2CC}
+\definecolor{marine}{HTML}{DDEBF7}
+\definecolor{headerfill}{HTML}{DCE6EF}
+\definecolor{grid}{HTML}{D9D9D9}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\begin{document}
+
+{\LARGE Steelhead Life Stages and Environments\par}
+Steelhead life histories vary in freshwater and ocean residence, migration and maturation timing, age, and repeat spawning. These patterns reflect both genetic adaptation and flexible responses to environmental conditions, forming a continuum rather than a single fixed sequence (Myers 2018, pp. 791–792). The table groups this diversity into practical stages for comparing mortality risks across environments. It represents the principal anadromous spawning pathway; individual fish and populations may follow alternative pathways or cross stage boundaries at different times. Mortality Range is left blank for later assessment.
+\par\vspace{3pt}
+\begingroup\fontsize{9}{10.6}\selectfont
+\begin{tblr}{
+colspec={X[1.4,l,m] X[3.25,l,m] X[1.5,l,m] X[1.05,l,m]},
+width=\linewidth, colsep=4pt, rowsep=3pt,
+hlines={0.4pt,grid}, vlines={0.4pt,grid},
+row{1}={font=\bfseries,bg=headerfill},
+cell{2}{4} = {r=3}{},
+cell{2}{4} = {freshwater},
+cell{4}{1} = {r=3}{},
+cell{4}{2} = {r=3}{},
+cell{4}{3} = {r=3}{},
+cell{5}{4} = {estuary},
+cell{6}{4} = {r=4}{},
+cell{6}{4} = {marine},
+cell{9}{1} = {r=3}{},
+cell{9}{2} = {r=3}{},
+cell{9}{3} = {r=3}{},
+cell{10}{4} = {estuary},
+cell{11}{4} = {r=3}{},
+cell{11}{4} = {freshwater},
+cell{13}{1} = {r=2}{},
+cell{13}{2} = {r=2}{},
+cell{13}{3} = {r=2}{},
+cell{14}{4} = {r=2}{},
+cell{14}{4} = {estuary},
+cell{15}{1} = {r=2}{},
+cell{15}{2} = {r=2}{},
+cell{15}{3} = {r=2}{},
+cell{16}{4} = {r=2}{},
+cell{16}{4} = {marine},
+cell{17}{1} = {r=3}{},
+cell{17}{2} = {r=3}{},
+cell{17}{3} = {r=3}{},
+cell{18}{4} = {estuary},
+cell{19}{4} = {freshwater},
+}
+Life Stage & Summary of Life Stage & Mortality Range & Environment \\
+\textbf{Egg / Alevin / Fry} & Embryo develops in stream gravel and hatches into a yolk-sac-fed alevin. After yolk absorption, the fish emerges as an actively feeding fry, before developing the recognizable parr form. &  & Freshwater \\
+\textbf{Parr} & Freshwater-rearing juvenile, typically marked by vertical parr bars; ends as the fish begins smoltification and downstream migration toward salt water. &  &  \\
+\textbf{Smolt} & Juvenile undergoing the physiological, morphological, and behavioral transition for seawater entry; begins in freshwater and spans the downstream/estuarine transition. &  &  \\
+ &  &  & Estuary \\
+ &  &  & Marine \\
+\textbf{Early Marine Juvenile} & Steelhead during initial marine residence. For this analysis, this stage extends from ocean entry through the end of the first marine winter; this endpoint is an analytical choice, not a universal biological boundary (Myers 2018). &  &  \\
+\textbf{Ocean-rearing Steelhead} & Steelhead feeding and growing at sea after the early marine period and before initiating the return spawning migration; reproductive maturity is not implied. &  &  \\
+\textbf{Returning Adult} & Adult returning from the ocean through marine and estuarine waters to freshwater spawning habitat. Includes migration, holding, and maturation before spawning; ends when spawning begins. &  &  \\
+ &  &  & Estuary \\
+ &  &  & Freshwater \\
+\textbf{Spawner} & Steelhead actively reproducing in freshwater spawning habitat, including redd construction, courtship, and egg and milt deposition. Ends when spawning is complete. &  &  \\
+\textbf{Post-spawning Freshwater Holding and Downstream Migration} & Post-spawn adult that survived spawning and remains in, or is migrating downstream through, freshwater toward the ocean. &  &  \\
+ &  &  & Estuary \\
+\textbf{Post-spawning Ocean Recovery} & Post-spawn survivor that has returned to salt water, where it recovers condition and may prepare for a subsequent spawning migration. &  &  \\
+ &  &  & Marine \\
+\textbf{Returning Repeat Spawner} & Previously spawned steelhead returning for another spawning attempt. Includes the marine–estuary return journey, freshwater migration, holding, and maturation; ends when spawning begins. &  &  \\
+ &  &  & Estuary \\
+ &  &  & Freshwater \\
+\end{tblr}
+\endgroup
+\clearpage
+Sources and interpretation: This table synthesizes the project’s Steelhead Life Stage Nomenclature working document, Blanton et al. (2011), NMFS and ODFW (2011), NMFS (2019), NOAA Fisheries (n.d.), and Myers (2018). Stage groupings, renamed categories, the early marine endpoint, and environment assignments are adaptations for this analysis, not a standardized NOAA classification.
+
+Environment boundaries are schematic and intentionally independent of life-stage boundaries. Merged cells show continuous habitat use; divisions within a stage show transitions among freshwater, estuary (where present), and marine waters. Their vertical positions do not represent time spent in each habitat or precise biological thresholds. Smolt and early marine terminology overlaps during initial marine migration.
+
+Alternative pathways: The table represents the principal anadromous spawning pathway, not an obligatory sequence for every fish. Half-pounders may return to freshwater after their first ocean summer, overwinter without spawning, and re-enter the ocean. Other pathways include lagoon rearing, freshwater residency and interbreeding with resident Rainbow Trout, prolonged freshwater holding after spawning, and consecutive or skip spawning. Post-spawning ocean recovery is therefore not required between every spawning event (Myers 2018, pp. 781–782, 792, 798, 820, 852–855).
+
+\section*{Bibliography}
+Blanton, M., Byrnes, C., and collaborators. 2011. Puget Sound Steelhead Foundations: A Primer for Recovery Planning. Washington Department of Fish and Wildlife and partner agencies. December. See Table 1, p. 10; life-history descriptions, pp. 11–21. \href{https://wdfw.wa.gov/sites/default/files/publications/01512/wdfw01512.pdf}{View source}
+
+Myers, K. W. 2018. Ocean ecology of steelhead. Pages 779–904 in R. J. Beamish, editor. The Ocean Ecology of Pacific Salmon and Trout. American Fisheries Society, Bethesda, Maryland. See especially pp. 781–782, 792–802, 820–821, and 852–855.
+
+National Marine Fisheries Service (NMFS) and Oregon Department of Fish and Wildlife (ODFW). 2011. Upper Willamette River Conservation and Recovery Plan for Chinook Salmon and Steelhead. Final, August 5. See §5.1.3, pp. 5-4–5-5, for life-stage definitions. \href{https://repository.library.noaa.gov/view/noaa/15981/noaa_15981_DS1.pdf}{View source}
+
+National Marine Fisheries Service (NMFS). 2019. ESA Recovery Plan for the Puget Sound Steelhead Distinct Population Segment (Oncorhynchus mykiss). West Coast Region. Approved December 20. See §1.2.1, pp. 28–30, including Figure 2. \href{https://www.fisheries.noaa.gov/s3/dam-migration/final_puget_sound_steelhead_recovery_plan.pdf}{View source}
+
+NOAA Fisheries. n.d. Pacific Salmon and Steelhead Fisheries Management Glossary. See entries for Smoltification and Smolts. Accessed November 5, 2026. \href{https://www.fisheries.noaa.gov/west-coast/sustainable-fisheries/pacific-salmon-and-steelhead-fisheries-management-glossary}{View source}
+
+Steelhead Life Stage Nomenclature. n.d. Working stage definitions for the steelhead risk framework. Unpublished project working document supplied by the user.
+
+\end{document}
