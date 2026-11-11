@@ -1,0 +1,110 @@
+# Seed candidate list
+
+- Salmonid Restoration Federation
+- Eel River Watershed Improvement Group
+- Save Auburn Ravine Salmon and Steelhead
+- Mattole Restoration Council
+- United Anglers of Casa Grande
+- Napa River Steelhead
+- Salmon and Steelhead Restoration Group
+- South Coast Habitat Restoration
+- Association of Northwest Steelheaders
+- Morgan Creek / Coos County STEP
+- Rogue River Restoration Council
+- Wild Steelhead Coalition
+- Northwest River Restoration
+- Wild Fish Conservancy
+- Mid-Columbia Fisheries Enhancement Group
+- SkeenaWild Conservation Trust
+- Wild Salmon Center
+- Native Fish Society
+- The Conservation Angler
+- Steelhead Society of British Columbia
+- Babine River Foundation
+- Coastal Rivers Conservancy
+- Coast Salmon Partnership
+- Long Live the Kings
+- Washington Council of Trout Unlimited
+- Idaho Rivers United
+- Friends of the Clearwater
+- Save Our Wild Salmon
+- Columbia Riverkeeper
+- Alameda Creek Alliance
+- Pacific Salmon Foundation
+- Northwest Indian Fisheries Commission
+- Idaho Conservation League
+- Greater Hells Canyon Council
+- Hood Canal Salmon Enhancement Group
+- Nimiipuu Protecting the Environment
+- Clearwater-Snake Trout Unlimited
+- Oregon Wild
+- WaterWatch of Oregon
+- Snake River Waterkeeper
+- Western Watersheds Project
+- American Rivers
+- Washington Wild
+- Oregon Natural Desert Association
+- Conservation Northwest
+- Center for Biological Diversity
+- Sierra Club
+- Earthjustice
+- Northwest Environmental Defense Center
+- Pacific Rivers
+- Spokane Riverkeeper
+- Clark Fork Coalition
+- Save the South Fork Salmon
+- Friends of the River
+- Friends of the Wild Salmon
+- Skeena Watershed Conservation Coalition
+- Bulkley Valley Rod and Gun Club
+- Watershed Watch Salmon Society
+- Raincoast Conservation Foundation
+- North Olympic Salmon Coalition
+- Mid Sound Fisheries Enhancement Group
+- Sound Salmon Solutions
+- South Puget Sound Salmon Enhancement Group
+- Nooksack Salmon Enhancement Association
+- Skagit Fisheries Enhancement Group
+- Tri-State Steelheaders
+- Advocates for the West
+- Endangered Species Coalition
+- Western Environmental Law Center
+- WildEarth Guardians
+- Alliance for the Wild Rockies
+- Alaska Trollers Association
+- American Whitewater
+- Center for Environmental Law & Policy
+- Coastal Trollers Association
+- Coast Range Association
+- Defenders of Wildlife
+- Environment Washington
+- Fly Fishers International
+- Idaho Wildlife Federation
+- Institute for Fisheries Resources
+- The Lands Council
+- National Wildlife Federation
+- Natural Resources Defense Council
+- North Cascades Conservation Council
+- Northwest Guides and Anglers Association
+- Northwest Sportfishing Industry Association
+- Oceana
+- Orca Conservancy
+- Orca Network
+- Pacific Coast Federation of Fishermen's Associations
+- Salmon For All
+- Sawtooth Society
+- Washington Trollers Association
+- Washington Wildlife Federation
+- Willamette Riverkeeper
+- Spokane Falls Trout Unlimited
+- Wilderness Watch
+- WildLands Defense
+- Steelhead Collective
+- Trout Unlimited — Wild Steelhead Initiative
+- Trout Unlimited — Alaska Program
+- Southeast Alaska Watershed Coalition
+- Takshanuk Watershed Council
+- Southeast Alaska Conservation Council
+- Southeast Alaska Land Trust
+- Sitka Conservation Society
+- The Nature Conservancy — Alask
