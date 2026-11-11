@@ -1,7 +1,7 @@
 {
   "status": "provisional-pilot",
-  "shared_model": null,
-  "model_selection_note": "Select one capable model release supported by the execution environment before the first agent assignment. Use that release for all three pilot roles unless the owner explicitly changes the configuration.",
+  "shared_model": "gpt-6.1-sol",
+  "model_selection_note": "Owner-selected on 2026-11-11: use GPT-6.1 Sol for all three pilot roles. Keep the shared model and role reasoning settings fixed for the first few assignments, then evaluate evidence quality, missed errors, and correction burden before changing them. If unavailable in the execution environment, report the limitation rather than silently substituting another model.",
   "roles": {
     "researcher": {
       "reasoning_effort": "medium"
