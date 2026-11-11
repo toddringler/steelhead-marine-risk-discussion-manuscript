@@ -1,110 +1,112 @@
 # Seed candidate list
 
-- Salmonid Restoration Federation
-- Eel River Watershed Improvement Group
-- Save Auburn Ravine Salmon and Steelhead
-- Mattole Restoration Council
-- United Anglers of Casa Grande
-- Napa River Steelhead
-- Salmon and Steelhead Restoration Group
-- South Coast Habitat Restoration
-- Association of Northwest Steelheaders
-- Morgan Creek / Coos County STEP
-- Rogue River Restoration Council
-- Wild Steelhead Coalition
-- Northwest River Restoration
-- Wild Fish Conservancy
-- Mid-Columbia Fisheries Enhancement Group
-- SkeenaWild Conservation Trust
-- Wild Salmon Center
-- Native Fish Society
-- The Conservation Angler
-- Steelhead Society of British Columbia
-- Babine River Foundation
-- Coastal Rivers Conservancy
-- Coast Salmon Partnership
-- Long Live the Kings
-- Washington Council of Trout Unlimited
-- Idaho Rivers United
-- Friends of the Clearwater
-- Save Our Wild Salmon
-- Columbia Riverkeeper
-- Alameda Creek Alliance
-- Pacific Salmon Foundation
-- Northwest Indian Fisheries Commission
-- Idaho Conservation League
-- Greater Hells Canyon Council
-- Hood Canal Salmon Enhancement Group
-- Nimiipuu Protecting the Environment
-- Clearwater-Snake Trout Unlimited
-- Oregon Wild
-- WaterWatch of Oregon
-- Snake River Waterkeeper
-- Western Watersheds Project
-- American Rivers
-- Washington Wild
-- Oregon Natural Desert Association
-- Conservation Northwest
-- Center for Biological Diversity
-- Sierra Club
-- Earthjustice
-- Northwest Environmental Defense Center
-- Pacific Rivers
-- Spokane Riverkeeper
-- Clark Fork Coalition
-- Save the South Fork Salmon
-- Friends of the River
-- Friends of the Wild Salmon
-- Skeena Watershed Conservation Coalition
-- Bulkley Valley Rod and Gun Club
-- Watershed Watch Salmon Society
-- Raincoast Conservation Foundation
-- North Olympic Salmon Coalition
-- Mid Sound Fisheries Enhancement Group
-- Sound Salmon Solutions
-- South Puget Sound Salmon Enhancement Group
-- Nooksack Salmon Enhancement Association
-- Skagit Fisheries Enhancement Group
-- Tri-State Steelheaders
-- Advocates for the West
-- Endangered Species Coalition
-- Western Environmental Law Center
-- WildEarth Guardians
-- Alliance for the Wild Rockies
-- Alaska Trollers Association
-- American Whitewater
-- Center for Environmental Law & Policy
-- Coastal Trollers Association
-- Coast Range Association
-- Defenders of Wildlife
-- Environment Washington
-- Fly Fishers International
-- Idaho Wildlife Federation
-- Institute for Fisheries Resources
-- The Lands Council
-- National Wildlife Federation
-- Natural Resources Defense Council
-- North Cascades Conservation Council
-- Northwest Guides and Anglers Association
-- Northwest Sportfishing Industry Association
-- Oceana
-- Orca Conservancy
-- Orca Network
-- Pacific Coast Federation of Fishermen's Associations
-- Salmon For All
-- Sawtooth Society
-- Washington Trollers Association
-- Washington Wildlife Federation
-- Willamette Riverkeeper
-- Spokane Falls Trout Unlimited
-- Wilderness Watch
-- WildLands Defense
-- Steelhead Collective
-- Trout Unlimited — Wild Steelhead Initiative
-- Trout Unlimited — Alaska Program
-- Southeast Alaska Watershed Coalition
-- Takshanuk Watershed Council
-- Southeast Alaska Conservation Council
-- Southeast Alaska Land Trust
-- Sitka Conservation Society
-- The Nature Conservancy — Alask
+Each entry has a permanent assigned ID. IDs remain unchanged after name changes and must never be reused. Keep the list cumulative; record screening decisions and duplicate-to-canonical ID mappings in the entity records. Listing a candidate does not establish steelhead relevance, legal independence, or census eligibility.
+
+- Salmonid Restoration Federation (ID=org-srf)
+- Eel River Watershed Improvement Group (ID=org-erwig)
+- Save Auburn Ravine Salmon and Steelhead (ID=org-sarsas)
+- Mattole Restoration Council (ID=org-mattole-restoration)
+- United Anglers of Casa Grande (ID=org-uacg)
+- Napa River Steelhead (ID=org-napa-steelhead)
+- Salmon and Steelhead Restoration Group (ID=org-ssrg)
+- South Coast Habitat Restoration (ID=org-southcoast-habitat)
+- Association of Northwest Steelheaders (ID=org-anws)
+- Morgan Creek / Coos County STEP (ID=org-morgan-coos-step)
+- Rogue River Restoration Council (ID=org-rogue-restoration)
+- Wild Steelhead Coalition (ID=org-wildsteelhead-coalition)
+- Northwest River Restoration (ID=org-northwest-restoration)
+- Wild Fish Conservancy (ID=org-wildfishcon)
+- Mid-Columbia Fisheries Enhancement Group (ID=org-mcfeg)
+- SkeenaWild Conservation Trust (ID=org-skeenawild)
+- Wild Salmon Center (ID=org-wildsalmoncenter)
+- Native Fish Society (ID=org-nativefish)
+- The Conservation Angler (ID=org-conservationangler)
+- Steelhead Society of British Columbia (ID=org-ssbc)
+- Babine River Foundation (ID=org-babine-foundation)
+- Coastal Rivers Conservancy (ID=org-coastalrivers)
+- Coast Salmon Partnership (ID=org-coastsalmon)
+- Long Live the Kings (ID=org-lltk)
+- Washington Council of Trout Unlimited (ID=org-wa-tu)
+- Idaho Rivers United (ID=org-idaho-rivers)
+- Friends of the Clearwater (ID=org-clearwater-friends)
+- Save Our Wild Salmon (ID=org-savewildsalmon)
+- Columbia Riverkeeper (ID=org-columbia-riverkeeper)
+- Alameda Creek Alliance (ID=org-alameda-creek)
+- Pacific Salmon Foundation (ID=org-pacificsalmon)
+- Northwest Indian Fisheries Commission (ID=org-nwifc)
+- Idaho Conservation League (ID=org-idaho-conservation)
+- Greater Hells Canyon Council (ID=org-hellscanyon)
+- Hood Canal Salmon Enhancement Group (ID=org-hcseg)
+- Nimiipuu Protecting the Environment (ID=org-nimiipuu)
+- Clearwater-Snake Trout Unlimited (ID=org-clearwater-snake-tu)
+- Oregon Wild (ID=org-oregonwild)
+- WaterWatch of Oregon (ID=org-waterwatch)
+- Snake River Waterkeeper (ID=org-snake-riverkeeper)
+- Western Watersheds Project (ID=org-westernwatersheds)
+- American Rivers (ID=org-americanrivers)
+- Washington Wild (ID=org-wawild)
+- Oregon Natural Desert Association (ID=org-onda)
+- Conservation Northwest (ID=org-conservationnw)
+- Center for Biological Diversity (ID=org-cbd)
+- Sierra Club (ID=org-sierraclub)
+- Earthjustice (ID=org-earthjustice)
+- Northwest Environmental Defense Center (ID=org-nwedc)
+- Pacific Rivers (ID=org-pacificrivers)
+- Spokane Riverkeeper (ID=org-spokane-riverkeeper)
+- Clark Fork Coalition (ID=org-clarkfork)
+- Save the South Fork Salmon (ID=org-southforksalmon)
+- Friends of the River (ID=org-river-friends)
+- Friends of the Wild Salmon (ID=org-wildsalmon-friends)
+- Skeena Watershed Conservation Coalition (ID=org-skeena-watershed)
+- Bulkley Valley Rod and Gun Club (ID=org-bulkley-rodgun)
+- Watershed Watch Salmon Society (ID=org-watershedwatch)
+- Raincoast Conservation Foundation (ID=org-raincoast)
+- North Olympic Salmon Coalition (ID=org-northolympic-salmon)
+- Mid Sound Fisheries Enhancement Group (ID=org-midsound-fisheries)
+- Sound Salmon Solutions (ID=org-soundsalmon)
+- South Puget Sound Salmon Enhancement Group (ID=org-southpugetsound-salmon)
+- Nooksack Salmon Enhancement Association (ID=org-nooksack-salmon)
+- Skagit Fisheries Enhancement Group (ID=org-skagit-fisheries)
+- Tri-State Steelheaders (ID=org-tristate-steelheaders)
+- Advocates for the West (ID=org-advocateswest)
+- Endangered Species Coalition (ID=org-endangered-coalition)
+- Western Environmental Law Center (ID=org-western-law)
+- WildEarth Guardians (ID=org-wildearth)
+- Alliance for the Wild Rockies (ID=org-wildrockies)
+- Alaska Trollers Association (ID=org-alaska-trollers)
+- American Whitewater (ID=org-americanwhitewater)
+- Center for Environmental Law & Policy (ID=org-celp)
+- Coastal Trollers Association (ID=org-coastal-trollers)
+- Coast Range Association (ID=org-coastrange)
+- Defenders of Wildlife (ID=org-defenders)
+- Environment Washington (ID=org-environmentwa)
+- Fly Fishers International (ID=org-flyfishers)
+- Idaho Wildlife Federation (ID=org-idaho-wildlife)
+- Institute for Fisheries Resources (ID=org-fisheries-resources)
+- The Lands Council (ID=org-lands-council)
+- National Wildlife Federation (ID=org-nwf)
+- Natural Resources Defense Council (ID=org-nrdc)
+- North Cascades Conservation Council (ID=org-northcascades)
+- Northwest Guides and Anglers Association (ID=org-northwest-guides)
+- Northwest Sportfishing Industry Association (ID=org-nsia)
+- Oceana (ID=org-oceana)
+- Orca Conservancy (ID=org-orca-conservancy)
+- Orca Network (ID=org-orca-network)
+- Pacific Coast Federation of Fishermen's Associations (ID=org-pcffa)
+- Salmon For All (ID=org-salmonforall)
+- Sawtooth Society (ID=org-sawtooth)
+- Washington Trollers Association (ID=org-wa-trollers)
+- Washington Wildlife Federation (ID=org-wa-wildlife)
+- Willamette Riverkeeper (ID=org-willamette-riverkeeper)
+- Spokane Falls Trout Unlimited (ID=org-spokanefalls-tu)
+- Wilderness Watch (ID=org-wildernesswatch)
+- WildLands Defense (ID=org-wildlands)
+- Steelhead Collective (ID=org-steelhead-collective)
+- Trout Unlimited — Wild Steelhead Initiative (ID=org-tuwsi)
+- Trout Unlimited — Alaska Program (ID=org-tu-alaska)
+- Southeast Alaska Watershed Coalition (ID=org-southeastalaska-watershed)
+- Takshanuk Watershed Council (ID=org-takshanuk)
+- Southeast Alaska Conservation Council (ID=org-southeastalaska-conservation)
+- Southeast Alaska Land Trust (ID=org-southeastalaska-landtrust)
+- Sitka Conservation Society (ID=org-sitka-conservation)
+- The Nature Conservancy — Alask (ID=org-tnc-alaska)
