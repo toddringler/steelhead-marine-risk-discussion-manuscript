@@ -1,6 +1,6 @@
 # Wild Steelhead Organization Census Requirements
 
-Version 0.3 | Review draft | 11 November 2026
+Version 0.4 | Review draft | 11 November 2026
 
 1 Purpose and review decision
 
@@ -8,7 +8,7 @@ This document specifies a repeatable system to identify, analyze, and track NGO-
 
 **Reviewers should approve the scope, entity distinctions, evidence rules, and release criteria, then resolve the decisions in Section 11 before a production baseline is issued. Requirements describe desired system behavior; they do not assert that the census is complete or that an organization's budget measures its conservation effectiveness.**
 
-### Goals
+## Goals
 
 - Discover relevant organizations systematically.
 
@@ -101,13 +101,23 @@ Discovery uses P00 through P06 as a repeatable pass framework. The following map
 
 | **Pass** | **Proposed purpose** | **Required coverage evidence** |
 | --- | --- | --- |
-| P00 | Import seeds and reconcile baseline | Source rows, aliases, known gaps |
+| P00 | Initialize from the versioned seed list and reconcile baseline | Seed path, Git revision, content hash, source entries, aliases, known gaps |
 | P01 | Steelhead and place searches | Queries by jurisdiction and basin |
 | P02 | Legal registry and filing searches | Jurisdiction-specific identity checks |
 | P03 | Broader conservation searches | Watersheds, fisheries, habitat and policy |
 | P04 | Partner and funding network expansion | New candidates from observed edges |
 | P05 | Structure and chapter searches | Sponsors, parents, affiliates and programs |
 | P06 | Gap audit and saturation challenge | Missing geography, stages, risks and NGO types |
+
+### Candidate seed list
+
+The system analysis starts from the organization names in [seed-candidate-list.md](../data/seed-candidate-list.md), located at `analysis/ngo-census/data/seed-candidate-list.md` relative to the repository root. This file is a candidate discovery input, not a roster of organizations verified to do steelhead-relevant work. Every listed candidate requires the same identity resolution, relevance screening, evidence, and review as a newly discovered candidate.
+
+**DIS-06 |** P0 | Each analysis run MUST initialize its candidate queue from an explicitly identified revision of the seed list. The list MUST be maintained under Git revision control alongside the requirements. The run manifest MUST record its repository-relative path, Git commit ID, content hash, and a mapping from each imported name and source entry to its candidate record. An uncommitted working copy MUST NOT be the sole recorded input to a reproducible release.
+
+**DIS-07 |** P0 | Presence in the seed list MUST NOT establish steelhead relevance, NGO eligibility, legal identity, or approved census inclusion. Candidates MUST be screened using the scope and public-evidence rules; excluded, deferred, and unresolved decisions MUST retain their rationale and provenance. Seed membership MUST NOT override a prior reviewed decision without new evidence and review.
+
+**DIS-08 |** P0 | As discovery identifies additional organizations, the system MUST update the seed list with new candidate names after duplicate and alias checks, without waiting for relevance approval. Each addition, correction, consolidation, or removal MUST have a traceable discovery run or decision, date, and reason. List updates MUST be retained in Git history; screening decisions MUST remain in the candidate records rather than being inferred from presence or absence in the list. A run MUST distinguish its initial seed revision from candidates added during that run and record the resulting list revision at completion. Updates MUST NOT alter the frozen inputs or outputs of earlier runs.
 
 ### Discovery requirements
 
@@ -177,9 +187,9 @@ For example, a hypothetical organization with USD 1 million in compatible progra
 
 ### Life stages and risks
 
-**BIO-01 |** P0 | Activities MUST support freshwater, estuary, and marine environments, with migration and transition links. Proposed life stages are spawning, **incubation, juvenile rearing, downstream migration, ocean entry, marine residence, adult return, and repeat spawning.** Unknown and cross-stage work MUST be supported.
+**BIO-01 |** P0 | Activities MUST support freshwater, estuary, and marine environments, with migration and transition links. Life stages MUST be drawn from Section 02, Steelhead Life Cycle, of the discussion document ([section source](../../../sections/02_life_cycle.tex) and its [life-stage table](../../../tables/life_stage_crosswalk.tex)). Those stages are **Egg / Alevin / Fry; Parr; Smolt; Early Marine Juvenile; Ocean-rearing Steelhead; Returning Adult; Spawner; Post-spawning Freshwater Holding and Downstream Migration; Post-spawning Ocean Recovery; Returning Repeat Spawner.** Unknown and cross-stage work MUST be supported. These are the discussion document’s analytical stage groupings, not a mandatory sequence for every fish. The codebook MUST record the source revision and retain a crosswalk when stage definitions change.
 
-**BIO-02 |** P0 | **The initial risk codebook MUST cover habitat access and connectivity; flow and water quantity; temperature and water quality; habitat condition; harvest and bycatch; hatchery and genetic interactions; disease and parasites; predation and food-web change; marine climate and productivity; and cumulative interactions. Each code MUST define inclusion, exclusion, examples, and evidence needs before operational use.**
+**BIO-02 |** P0 | **Biological risk categories and definitions MUST be drawn from Section 03, Biological Risk Across the Life Cycle, of the discussion document ([section source](../../../sections/03_biological_risk.tex)). OPEN DEPENDENCY: Section 03 is incomplete. Its completion and approval of the resulting risk codebook are prerequisites for running the full census. Each risk code MUST define inclusion, exclusion, examples, and evidence needs before operational use. The codebook MUST record the source revision and retain a crosswalk when risk definitions change.**
 
 **BIO-03 |** P0 | Activity coding MUST store affected geography or population, stage, environment, risk, intervention type, period, direct or indirect pathway, evidence, and confidence. Advocacy or research subject matter MUST NOT establish a demonstrated biological effect.
 
@@ -213,6 +223,14 @@ Relationships explain funding, governance, and collaboration. Their presence, di
 
 **REP-05 |** P2 | Users MAY compare network structure and effort distribution across risks and stages, provided denominator compatibility, uncertainty, and unresolved coverage remain visible.
 
+**REP-06 |** P0 | Each report MUST identify the starting seed list by repository-relative path, Git commit ID, and content hash, and provide a link to that exact revision or attach a readable copy of it. The report MUST also identify the resulting seed-list revision when discovery changed the list and summarize additions, corrections, consolidations, and removals. Links MUST refer to immutable revisions rather than the current branch or latest file. The release package MUST retain the exact starting and resulting list contents with the run manifest so the report remains reproducible if a repository link becomes unavailable. Reports MUST state that seed-list membership identifies candidates and does not establish steelhead relevance or approved census inclusion.
+
+**REP-07 |** P0 | Each report MUST display the repository URL and full Git commit hash identifying the analysis that produced it, with an immutable link to that commit. This commit MUST identify the analysis code, requirements, configuration, and versioned inputs used; separately versioned components MUST have their own commit hashes recorded in the run manifest. The report MUST state whether the working tree contained uncommitted changes affecting the analysis. If it did, the release package MUST retain the exact patch and copies of all relevant untracked files, with content hashes, so the commit plus retained changes reconstructs the actual analysis state. Every input stored outside Git MUST have a content hash and a retained, retrievable copy identified in the manifest. A commit hash alone MUST NOT be presented as a complete analysis identifier when relevant uncommitted changes or external inputs are omitted. The analysis commit identifies the generating inputs and implementation; it need not contain the generated report itself, avoiding a circular dependency between the report and its own commit hash.
+
+**REP-08 |** P0 | For each included entity in each reporting snapshot, the system MUST produce and retain a GeoJSON file that generally depicts the geographic extent of direct influence supported by that entity’s collective documented activities and actions during the reporting period. The footprint MUST be derived from activity locations and evidence, rather than headquarters, an organization’s name, broad mission statements, or partner geography alone. A circle or oval approximated as a polygon MAY represent a general activity region; separate areas MUST remain separate polygons or features when a single enclosing shape would misleadingly imply influence between them. For example, documented river restoration on the lower Deschutes may be represented by an approximate circle or oval spanning that region, without implying activity throughout the entire Deschutes basin. The shape depicts the approximate area of documented direct influence, not a precise project boundary, uniform activity coverage, measured biological effect, or demonstrated conservation outcome.
+
+**REP-09 |** P0 | Each entity GeoJSON file MUST use a FeatureCollection with Polygon or MultiPolygon geometry for supported footprints and MUST record entity ID, snapshot ID, reporting period, contributing activity and claim IDs, footprint method and parameters, source geography and its version, confidence, spatial uncertainty, and reviewer. Coordinates MUST use longitude then latitude in WGS 84 decimal degrees; polygon rings MUST be closed and geometrically valid. Where locations are insufficiently supported, the file MUST retain an entity feature with null geometry and an explicit unknown or insufficient-evidence status and reason; the system MUST NOT invent a location or interpret null geometry as no activity. Partial coverage MUST identify which activities remain unmapped. The report MUST link to the file and explain its approximate meaning, evidence cutoff, and known coverage limits. Files MUST be versioned or retained as immutable release artifacts, with paths and content hashes in the run manifest. Frozen evidence, geometry inputs, methods, parameters, and analysis version MUST permit the same footprints to be regenerated without live geocoding or current boundary services.
+
 ### Interpretation rules
 
 Non-NGO institutions are outside this census and belong in the separate institutional census. When a public source names an excluded institution as a partner or funder, retain only the reference needed to document the NGO relationship, with an exclusion flag and an optional link to the separate census. Do not create a full institutional profile or include institutional budgets in this census. Apply the same reference-only treatment to partners outside the target geography.
@@ -230,6 +248,7 @@ Use normalized logical tables or equivalent structured sheets with stable keys. 
 | Alias — alias_id | entity_id, name, alias_type, valid_dates |
 | Geography — geography_id | country_or_territory, subnational_jurisdiction, basin_or_population, marine_area, boundary_version |
 | EntityGeography — link_id | entity_id, geography_id, role, dates, claim_id |
+| InfluenceFootprint — footprint_id | entity_id, snapshot_id, period, geojson_path, content_hash, geometry_status, activity_ids, claim_ids, method, parameters, source_geography_version, confidence, spatial_uncertainty, unmapped_activity_ids, reviewer |
 | Financial — financial_id | entity_id, metric, amount, currency, fiscal_dates, filing_year, boundary_id, source_id, locator, selected_version |
 | Staffing — staffing_id | entity_id, measure, value, units, scope, observation_date, claim_id |
 | Activity — activity_id | title, description, period, pathway, intervention, effect_status, claim_id |
@@ -242,6 +261,8 @@ Use normalized logical tables or equivalent structured sheets with stable keys. 
 | ClaimSource — link_id | claim_id, source_id, locator, extract_or_summary, evidence_role |
 | DiscoveryRun — run_id | pass, query, source, geography, date, researcher, reviewed_count, stopping_point |
 | CandidateDecision — decision_id | run_id, candidate_name, entity_id_if_known, decision, reason, reviewer |
+| SeedInput — seed_input_id | run_id, repository_path, git_commit_id, content_hash, source_entry, original_name, candidate_record_id |
+| SeedChange — seed_change_id | run_id_or_decision_id, candidate_record_id, change_type, old_name, new_name, date, reason, resulting_git_commit_id |
 | Boundary and Flow — boundary_id / flow_id | included_entities, period, consolidation_rule / payer, payee, amount, included_observations |
 | Snapshot and Audit — snapshot_id / event_id | cutoff, method_version, manifest_hash / actor, time, object, old, new, reason |
 
@@ -261,21 +282,21 @@ Use normalized logical tables or equivalent structured sheets with stable keys. 
 
 1. Plan the cycle. Declare coverage, cutoff, financial-year policy, methods, responsibilities, and known gaps. Inventory the previous workbook and preserve an unmodified source copy.
 
-2. Import and discover. Map sheets and columns, retain original row IDs, run P00–P06, and screen candidates. Separate inclusion from legal verification.
+2. Seed, import, and discover. Initialize the analysis from the recorded Git revision of `analysis/ngo-census/data/seed-candidate-list.md` and preserve its exact contents and entry-to-candidate mapping. Reconcile historical workbook rows separately, retain their original IDs, run P00–P06, and screen every candidate. Add newly discovered organizations to the version-controlled list with discovery provenance and duplicate checks. Separate candidate membership, relevance approval, and legal verification.
 
 3. Resolve identity and structure. Verify identifiers, aliases, sponsors, parentage, chapters, and financial boundaries before aggregating resources.
 
-4. Research and code. Capture filings, program evidence, staffing, activities, networks, geography, stages, and risks. Record unknowns and conflicts as work items.
+4. Research and code. Capture filings, program evidence, staffing, activities, networks, geography, stages, and risks. Record unknowns and conflicts as work items. Derive and review each entity’s approximate direct-influence footprint from its collective evidenced activities, recording geometry methods, uncertainty, and unmapped activities under REP-08–09.
 
 5. Estimate and review. Use compatible denominators, document share bounds, check overlap, and obtain a second review for estimates and merges.
 
-6. Validate and release. Run acceptance checks, adjudicate exceptions, review saturation, freeze the snapshot, and publish the manifest and limitations with exports.
+6. Validate and release. Run acceptance checks, adjudicate exceptions, review saturation, and freeze the snapshot and its initial and resulting seed-list revisions. Identify and link or attach the exact seed list in the report as required by REP-06, summarize any list changes, and display the generating analysis commit and working-tree status as required by REP-07. Publish the manifest, retained list contents, external input hashes and copies, any relevant uncommitted changes, entity GeoJSON files linked from the report, and limitations with exports.
 
 7. Refresh. Recheck high-change records and inaccessible sources, run annual gap searches, retain prior versions, and distinguish substantive change from improved discovery.
 
 ### Nonfunctional requirements
 
-**NFR-01 |** P0 | A release MUST be reproducible from its frozen records, codebook, calculations, conversion rates, and source manifest without relying on live web pages or undocumented spreadsheet edits.
+**NFR-01 |** P0 | A release MUST be completely reproducible from its frozen records, exact initial seed-list contents and Git revision, discovery logs, candidate decisions, codebook, generating analysis Git commit and configuration, any relevant uncommitted changes, hashed and retained external inputs, calculations, conversion rates, and source manifest with retained evidence. Reproduction MUST NOT depend on the latest seed list, live web pages, or undocumented spreadsheet edits. Evolving the candidate list MUST NOT weaken this requirement: rerunning the recorded analysis against the frozen inputs MUST reproduce the same approved records, counts, and derived results. Live discovery is recorded as new input, not silently repeated as part of historical reproduction.
 
 **NFR-02 |** P0 | The system MUST provide editable open exports in CSV or JSON plus a readable workbook; exports MUST retain IDs, units, null reasons, and evidence links. A proprietary interface MUST NOT be the only copy.
 
@@ -310,6 +331,10 @@ The pilot must use fixtures covering North American and western Pacific jurisdic
 | AC-11 | GOV-02–03, NFR-03–05 | Unapproved material estimates cannot enter a release; unauthorized edits fail; restore preserves snapshot checksums |
 | AC-12 | DAT-02–04, REP-04 | Import preserves original row references; rerun creates no duplicates; rename does not appear as a new legal body |
 | AC-13 | ENT-05, EVD-06, NFR-05 | Institutional profile is excluded; a necessary public partner reference remains outside counts and budgets; personal communication alone cannot approve a claim; prohibited personal data is rejected. |
+| AC-14 | DIS-06–08, GOV-02, NFR-01 | A run loads a named seed revision with matching hash and entry mapping; an unsupported seed remains unapproved; a newly discovered candidate is added with provenance in a later Git revision; reproducing the earlier run after that update yields identical approved records, counts, and derived results without live discovery. |
+| AC-15 | REP-06, DIS-06–08, NFR-01 | The report displays the starting seed path, commit ID, and matching content hash and links to an immutable revision or includes a readable copy. A changed list has its resulting revision and change summary reported; both exact list contents remain available in the release package if repository access is removed. The candidate-only meaning of list membership is explicit. |
+| AC-16 | REP-07, NFR-01 | The report displays the repository URL, full generating analysis commit hash, immutable commit link, and working-tree status. A clean checkout plus the manifest and retained inputs reproduces the reported results; a fixture with relevant uncommitted edits or untracked files is reproducible only when their exact hashed contents are retained. An external input hash resolves to its retained copy. The generating commit need not contain the report. |
+| AC-17 | REP-08–09, BIO-03, NFR-01 | A lower Deschutes restoration fixture produces a valid approximate regional polygon from its activity evidence, not its headquarters or the whole basin. Disjoint activities remain separate; unsupported locations yield null geometry with a reason, and partial mapping lists unmapped activities. Each entity file resolves to its snapshot, contributing evidence, method, reviewer, and manifest hash; the report links to it and explains its limits. Frozen inputs reproduce the same footprints without live geographic services. |
 
 ### Release gate
 
@@ -329,22 +354,22 @@ Validation must report orphan keys, duplicate identifiers, unresolved boundaries
 | OD-04 | Year alignment | Use latest available fiscal year at cutoff, label year distribution, and provide comparable-year subsets |
 | OD-05 | Attribution denominator | Prefer compatible program expense; allow separately labeled revenue capacity proxies |
 | OD-06 | Effort allocation | Retain overlapping activity coverage; permit additive resource partitions only with supported allocations |
-| OD-07 | Taxonomy authority | Approve the initial risk and life-stage codebook jointly with manuscript reviewers before coding production records |
+| OD-07 | Taxonomy authority and incomplete risk section | Complete Section 03 of the discussion document and approve its resulting risk codebook before running the full census; approve the life-stage codebook drawn from Section 02 jointly with manuscript reviewers before production coding |
 | OD-08 | Platform and scale | Start with normalized workbook sheets; migrate to a relational store when concurrent editing or integrity needs justify it |
 | OD-09 | Refresh and service targets | Annual full review with quarterly checks for priority records; confirm backup, recovery, and performance targets |
 | OD-10 | Publication and source retention | Confirm public-source eligibility, licensing, permitted source copies, and exclusion of prohibited personal data |
 
 ### Phase 0 Method and baseline reconciliation
 
-Inventory the historical workbook, sheet purposes, formulas, pass definitions, source links, and entity counts. Route excluded institutional profiles to the separate census and screen imported sources for compliance with the public-data rule. Produce a field map, discrepancy log, codebook, and approved decision register. Exit when every original row has a preserved reference and a mapped destination or documented exclusion. Do not invent missing history.
+Establish the version-controlled seed list and its baseline Git revision, content hash, and source-entry mapping. Inventory the historical workbook, sheet purposes, formulas, pass definitions, source links, and entity counts. Route excluded institutional profiles to the separate census and screen imported sources for compliance with the public-data rule. Produce a field map, discrepancy log, codebook, and approved decision register. Exit when every original row has a preserved reference and a mapped destination or documented exclusion. Do not invent missing history.
 
 ### Phase 1 Auditable census pilot
 
-Implement all P0 controls using structured sheets or a small database. Exercise the full discovery, evidence, identity, financial, attribution, and release workflow on a deliberately diverse pilot. Exit when AC-01–13 pass for applicable P0 behavior, a second reviewer can reproduce the pilot report, and the owner approves the methods and exceptions.
+Implement all P0 controls using structured sheets or a small database. Exercise the full discovery, evidence, identity, financial, attribution, and release workflow on a deliberately diverse pilot. Exit when AC-01–17 pass for applicable P0 behavior, a second reviewer can reproduce the pilot report, and the owner approves the methods and exceptions.
 
 ### Phase 2 Pacific Rim baseline and annual operation
 
-Extend coverage across the entire Pacific Rim geographic register, complete the approved P00–P06 plan, evaluate saturation separately by jurisdiction and shared marine search area, and issue the first annual snapshot. Stage the work by region as needed, while disclosing all unfinished areas and withholding any claim of Pacific Rim saturation until the full approved scope is addressed. Add P1 import, refresh, network, sensitivity, and performance capabilities. Exit when coverage and residual gaps are published, a restore rehearsal succeeds, and a second annual comparison can distinguish discovery from substantive change.
+Begin the full census only after Section 03 and the resulting risk codebook are completed and approved, as required by BIO-02. Extend coverage across the entire Pacific Rim geographic register, complete the approved P00–P06 plan, evaluate saturation separately by jurisdiction and shared marine search area, and issue the first annual snapshot. Stage the work by region as needed, while disclosing all unfinished areas and withholding any claim of Pacific Rim saturation until the full approved scope is addressed. Add P1 import, refresh, network, sensitivity, and performance capabilities. Exit when coverage and residual gaps are published, a restore rehearsal succeeds, and a second annual comparison can distinguish discovery from substantive change.
 
 ### Phase 3 Comparative analysis
 
