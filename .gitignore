@@ -58,3 +58,6 @@ venv/
 *.bak*
 *.swo
 .DS_Store
+
+# Provisional NGO census staging (local working material)
+/analysis/ngo-census/staging/
