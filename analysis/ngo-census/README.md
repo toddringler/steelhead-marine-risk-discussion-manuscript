@@ -274,3 +274,9 @@ The shared HTML preview supports per-proposal accept/reject/defer/request-change
 ### Existing extract-based pilot
 
 The Wild Salmon Center demonstration initially used selective researcher extracts. It tests handoffs and interpretation, but does not demonstrate the default original-file collection/reuse requirement. Do not silently relabel its extracts as originals or treat earlier review as acceptance of newly collected files. Filling this gap requires a separately addressed research correction, actual source acquisition/capture, updated provenance/hashes and renewed review of affected proposals.
+
+## Coordinated agent execution
+
+Assign a bounded organization task to the [coordinator](requirements/coordinator-agent-instructions.md) to manage researcher, independent reviewer, corrections and steward without manually relaying chats. One worker executes at a time; the coordinator only waits/monitors while it runs. Completion and addressed file handoffs must both be verified before dispatching the next role. Independent reviewers get fresh sessions. Default limit: two substantive correction rounds, then defer affected work or escalate a concise owner question.
+
+The coordinator keeps an ignored resumable scheduling journal under `output/ngo-census/coordinator/state.json`, uses standing owner approval for eligible integration, and does not gain commit, cleanup or publication authority. No unattended service is installed. The first test uses isolated synthetic data under `output/ngo-census/coordinator-smoke/`, not live staging or retained census evidence.
