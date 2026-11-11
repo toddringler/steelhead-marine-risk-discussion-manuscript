@@ -9,7 +9,7 @@ analysis/ngo-census/
 ├── README.md
 ├── requirements/
 │   └── Steelhead_Organization_Census_Requirements.md
-├── data/
+├── input-data/
 │   └── seed-candidate-list.md
 ├── sources/
 │   ├── entities.csv
@@ -40,7 +40,7 @@ For this census, `sources/` is the self-contained home for both retained origina
 
 | File or directory | Purpose |
 | --- | --- |
-| `data/seed-candidate-list.md` | Cumulative candidate names and permanent assigned IDs; initializes discovery without implying eligibility |
+| `input-data/seed-candidate-list.md` | Cumulative candidate names and permanent assigned IDs; initializes discovery without implying eligibility |
 | `sources/entities.csv` | One registry of candidate identities, aliases, screening status and rationale, and parent or duplicate references; includes pending, included, excluded, and deferred candidates |
 | `sources/index.csv` | One index of retained documents, their origin, exact contents, and location; shared across organizations |
 | `sources/<org-id>/financial-history.csv` | Readable financial observations for that organization, by fiscal period and measure, with source and review references |
@@ -58,7 +58,7 @@ Keep entity identity and screening in `entities.csv`, financial values in the or
 
 ## Permanent organization IDs
 
-Use the assigned ID from the [seed list](data/seed-candidate-list.md), such as `org-wildfishcon`, for the organization directory and cross-references. IDs are permanent even after a name change. Never reassign them or regenerate them from updated names.
+Use the assigned ID from the [seed list](input-data/seed-candidate-list.md), such as `org-wildfishcon`, for the organization directory and cross-references. IDs are permanent even after a name change. Never reassign them or regenerate them from updated names.
 
 Keep the seed list cumulative. Candidate status lives in `entities.csv`, not in the presence or absence of a seed entry. A duplicate retains its ID and points to the canonical entity; exclude it from duplicate counts. Programs have their own IDs and a parent reference where supported, without assuming legal independence.
 

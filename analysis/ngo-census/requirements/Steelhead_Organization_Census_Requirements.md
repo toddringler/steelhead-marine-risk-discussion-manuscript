@@ -111,7 +111,7 @@ Discovery uses P00 through P06 as a repeatable pass framework. The following map
 
 ### Candidate seed list
 
-The system analysis starts from the organization names in [seed-candidate-list.md](../data/seed-candidate-list.md), located at `analysis/ngo-census/data/seed-candidate-list.md` relative to the repository root. This file is a candidate discovery input, not a roster of organizations verified to do steelhead-relevant work. Every listed candidate requires the same identity resolution, relevance screening, evidence, and review as a newly discovered candidate.
+The system analysis starts from the organization names in [seed-candidate-list.md](../input-data/seed-candidate-list.md), located at `analysis/ngo-census/input-data/seed-candidate-list.md` relative to the repository root. This file is a candidate discovery input, not a roster of organizations verified to do steelhead-relevant work. Every listed candidate requires the same identity resolution, relevance screening, evidence, and review as a newly discovered candidate.
 
 **DIS-06 |** P0 | Each research cycle MUST start from an identified Git revision of the seed list. The list MUST be tracked in the public repository. Record the starting commit and path once in the cycle metadata carried into the release manifest; candidate records MUST retain the imported name and link to the matching entity ID when resolved. A separate seed-input table or hash for each name is not required.
 
@@ -262,7 +262,7 @@ The initial implementation uses readable structured research files in the public
 
 ### Repository organization and reuse
 
-Follow the implementation conventions in the [census README](../README.md). It places the organization registry and source index alongside per-organization evidence, financial histories, activity notes, and footprints under `sources/`, while retaining the cumulative seed list under `data/`. This is the census-specific source-storage convention; generated reports remain under the repository-root `output/` directory and untracked.
+Follow the implementation conventions in the [census README](../README.md). It places the organization registry and source index alongside per-organization evidence, financial histories, activity notes, and footprints under `sources/`, while retaining the cumulative seed list under `input-data/`. This is the census-specific source-storage convention; generated reports remain under the repository-root `output/` directory and untracked.
 
 Git history MUST preserve maintained records and corrections, while source references establish the evidence behind findings. Previously reviewed historical observations MUST be reused when the source and interpretation remain unchanged. Record the reviewer, date, source version, and scope of review with the observation or a referenced group review; source-origin checking alone does not verify extracted values. Re-review is required for changed sources, errors or conflicts, or method/identity changes affecting interpretation, not merely because a new release is being prepared. Retain superseded evidence and observations so prior releases remain reproducible. Use one source index and one manifest per release rather than duplicating shared provenance.
 
