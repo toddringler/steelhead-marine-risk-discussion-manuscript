@@ -62,7 +62,7 @@ analysis/ngo-census/
 └── decisions.md
 ```
 
-Organization names and document filenames in this tree illustrate placement; they do not assert that those filings or reports have been obtained. Add other source categories, such as `t3010/`, when appropriate. Avoid empty files and placeholder records that could be mistaken for completed research.
+Organization names and document filenames in this tree illustrate placement; they do not assert that those filings or reports have been obtained. Add other source categories, such as `t3010/` and `web-captures/`, when appropriate. Avoid empty files and placeholder records that could be mistaken for completed research.
 
 For this census, `sources/` is the self-contained home for both retained original public documents and reviewed research records. This is the census-specific exception to the repository's general `data/raw/` and `data/metadata/` placement conventions. Originals and research interpretation remain visibly separate by filename and subdirectory. Generated reports and exports go under the repository-root `output/ngo-census/<release-label>/` directory and remain untracked.
 
@@ -161,6 +161,16 @@ Keep the seed list cumulative. Candidate status lives in `entities.csv`, not in 
 
 Here, checking a source's origin means confirming its publisher, organizational identity, and document identity. It does not verify every assertion in the document or every value extracted from it.
 
+### Original source files are the default
+
+Collect and retain actual publicly available source files: IRS 990 PDFs, CRA disclosures, annual reports, program summaries, project descriptions and technical reports. Preserve downloaded originals byte-for-byte. Researcher-written summaries, observation notes, search snippets and short selective extracts do not substitute for an obtainable original. Prefer an available downloadable report over a page that merely describes it, within the assigned effort and document limits; do not expand into unrelated financial extraction just because a filing is retained for identity.
+
+For web-only evidence, retain a faithful, inspectable page capture (such as a browser print-to-PDF or self-contained saved page), with the public URL and retrieval date. Label its capture method, included sections, missing dynamic content or assets, and any limitations. A faithful capture preserves source wording and context; a researcher paraphrase is a separate interpretation. Keep source evidence non-executable in the review interface; a text fallback is not proof that a complete page was captured.
+
+Keep originals/captures separate from extracted observations and activities. Use `staging/proposed-changes/sources/<org-id>/990/`, `t3010/`, `program-reports/` or `web-captures/` for proposed evidence, with corresponding retained destinations under `sources/<org-id>/`. Use the permanent candidate ID. Record source ID, publisher/title, public origin URL, retrieval and publication dates (unknown where appropriate), actual period, intended path, capture type, exact retained-file SHA-256 and relevant pages/sections. Record the upstream filename where a readable local filename differs. An original is stored once and referenced by its source ID; amendments/new captures receive distinct versions and supersession links.
+
+Full retention must respect access/reuse conditions and exclude prohibited private or individual donor information. If a full copy cannot be retained, document the specific reason (for example reuse restrictions, prohibited information, technical failure, or assigned effort limit), attempts made, and what remains missing. Retain a permitted clearly labeled extract or durable external archived copy where feasible; record capture scope and hash accurately. A live URL alone is not retained evidence. Never label a paraphrase as an original or an extract hash as the original-file hash. If the retained evidence is insufficient to inspect a material claim, hold that claim for correction or deferral. An exception is not satisfied merely by choosing short excerpts for convenience.
+
 Start `sources/index.csv` with these fields, adding others only as needed:
 
 | Field | Meaning |
@@ -173,6 +183,9 @@ Start `sources/index.csv` with these fields, adding others only as needed:
 | `sha256` | Hash of the exact retained contents |
 | `origin_checked_by`, `origin_checked_date` | Person and date of the origin check, left pending until actually checked |
 | `supersedes_source_id` | Prior source replaced or amended, if applicable |
+| `capture_type`, `capture_method` | Original download, faithful web capture, or exception extract; how it was obtained |
+| `original_filename` | Publisher filename where provided; unknown for a web-only page |
+| `retention_exception`, `capture_limits` | Specific reason and scope when full source retention is unavailable; otherwise none |
 
 Retain permitted original documents without editing their contents. Use fiscal year rather than download year for filing names, and add a distinguishing suffix if necessary. An amendment or replacement gets a new filename and source ID; do not overwrite the old document. Keep the original source record even when a later source supersedes it.
 
@@ -257,3 +270,7 @@ The provisional staging-preview renderer and synthetic tests are available now; 
 ## Entering owner decisions
 
 The shared HTML preview supports per-proposal accept/reject/defer/request-changes choices and comments. Download the choices and give the file to the steward with an instruction to use it. Entries are not saved automatically. No file is required for default approval of an eligible reviewed subset. See [decision-file handling](methods/staging-record-format.md#owner-decision-entry) for validation and handoff rules. This interface does not perform Git operations or bypass review.
+
+### Existing extract-based pilot
+
+The Wild Salmon Center demonstration initially used selective researcher extracts. It tests handoffs and interpretation, but does not demonstrate the default original-file collection/reuse requirement. Do not silently relabel its extracts as originals or treat earlier review as acceptance of newly collected files. Filling this gap requires a separately addressed research correction, actual source acquisition/capture, updated provenance/hashes and renewed review of affected proposals.

@@ -85,6 +85,17 @@ Recommend one candidate status: pending, included, excluded, or deferred. State 
 
 ### Retain and identify public sources
 
+### Original source files are the default
+
+Collect and retain actual publicly available source files: IRS 990 PDFs, CRA disclosures, annual reports, program summaries, project descriptions and technical reports. Preserve downloaded originals byte-for-byte. Researcher-written summaries, observation notes, search snippets and short selective extracts do not substitute for an obtainable original. Prefer an available downloadable report over a page that merely describes it, within the assigned effort and document limits; do not expand into unrelated financial extraction just because a filing is retained for identity.
+
+For web-only evidence, retain a faithful, inspectable page capture (such as a browser print-to-PDF or self-contained saved page), with the public URL and retrieval date. Label its capture method, included sections, missing dynamic content or assets, and any limitations. A faithful capture preserves source wording and context; a researcher paraphrase is a separate interpretation. Keep source evidence non-executable in the review interface; a text fallback is not proof that a complete page was captured.
+
+Keep originals/captures separate from extracted observations and activities. Use `staging/proposed-changes/sources/<org-id>/990/`, `t3010/`, `program-reports/` or `web-captures/` for proposed evidence, with corresponding retained destinations under `sources/<org-id>/`. Use the permanent candidate ID. Record source ID, publisher/title, public origin URL, retrieval and publication dates (unknown where appropriate), actual period, intended path, capture type, exact retained-file SHA-256 and relevant pages/sections. Record the upstream filename where a readable local filename differs. An original is stored once and referenced by its source ID; amendments/new captures receive distinct versions and supersession links.
+
+Full retention must respect access/reuse conditions and exclude prohibited private or individual donor information. If a full copy cannot be retained, document the specific reason (for example reuse restrictions, prohibited information, technical failure, or assigned effort limit), attempts made, and what remains missing. Retain a permitted clearly labeled extract or durable external archived copy where feasible; record capture scope and hash accurately. A live URL alone is not retained evidence. Never label a paraphrase as an original or an extract hash as the original-file hash. If the retained evidence is insufficient to inspect a material claim, hold that claim for correction or deferral. An exception is not satisfied merely by choosing short excerpts for convenience.
+
+
 Prefer official filings, registries, organizational reports, and primary program documents. Use search results to find sources; snippets and generated summaries alone do not support material findings.
 
 For each new source proposed for retention:
@@ -144,7 +155,7 @@ Refresh the page after corrections and before each handoff. Use the same rendere
 Run existing applicable validation if implemented. Otherwise perform and report these direct checks without claiming a nonexistent automated suite passed:
 
 - Assigned organization and proposed source/activity IDs are unique and references resolve.
-- New retained document hashes match the files, and citations point to the relevant pages or sections.
+- Actual original files or faithful web captures are staged, open successfully, and are distinct from researcher summaries; any substitute extract has a specific documented exception. Retained document hashes match the files, and citations point to the relevant pages or sections.
 - Financial observations preserve amounts, units, currency, periods, and reporting boundaries; spot-check proposed extractions against originals and flag uncertain OCR.
 - Unknown values stay distinct from zero; parent/program/shared-project relationships do not duplicate budgets or work.
 - Candidate recommendations and interpretations are evidence-backed, with confidence/rationale where needed; risk coding stays pending until approved.
