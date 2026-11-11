@@ -1,0 +1,20 @@
+{
+  "status": "provisional-pilot",
+  "shared_model": null,
+  "model_selection_note": "Select one capable model release supported by the execution environment before the first agent assignment. Use that release for all three pilot roles unless the owner explicitly changes the configuration.",
+  "roles": {
+    "researcher": {
+      "reasoning_effort": "medium"
+    },
+    "reviewer": {
+      "reasoning_effort": "high",
+      "fresh_session": true
+    },
+    "steward": {
+      "reasoning_effort": "medium"
+    }
+  },
+  "escalation_policy": "Increase effort for consequential ambiguity, conflicting evidence, or integration conflicts within the assignment boundary; record changes and affected work. Do not substitute an unsupported model or effort setting silently.",
+  "actual_settings_policy": "Record requested and actual model/effort separately. If the actual value is not exposed, record unknown with the reason rather than inferring it from this configuration.",
+  "execution_policy": "One census agent executes at a time. This file records intended settings; it does not launch agents or prove that the runtime applied them."
+}

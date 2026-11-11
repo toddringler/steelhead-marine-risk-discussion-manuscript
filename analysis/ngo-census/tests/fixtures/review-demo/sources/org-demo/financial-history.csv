@@ -1,0 +1,2 @@
+org_id,metric,fiscal_period,amount,currency,source_id,locator
+org-demo,revenue,2022,1000,USD,src-demo-old,synthetic line 4
