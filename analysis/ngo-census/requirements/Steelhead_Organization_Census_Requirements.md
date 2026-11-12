@@ -10,21 +10,23 @@ This document specifies a repeatable system to identify, analyze, and track NGO-
 
 ### Repeatable research and reproducible releases
 
-Research follows a documented, repeatable procedure but may yield different discoveries. Web results, source availability, agent search choices, extraction proposals, and interpretations can change between runs. Search logs and retained evidence make the research traceable and reviewable; they do not promise identical discoveries or AI responses.
+Research follows a documented, repeatable procedure but may yield different discoveries. Web results, source availability, agent search choices, extraction proposals, and interpretations can change between runs. Search logs and retained evidence make the research traceable and reviewable; they do not promise identical discoveries.
 
-Each published release MUST instead be reproducible from retained evidence, reviewed research records and narrative, saved geographic data, and identified analysis code/configuration. The boundary is **agent research → retained evidence and reviewed findings → reproducible report generation**. Reproduction MUST NOT require repeating web searches, re-extracting documents with an AI model, reproducing review judgments, or obtaining identical AI responses. A fresh research run is new research, not reproduction of an old release.
+Each published release MUST instead be reproducible from retained evidence, reviewed research records and narrative, saved geographic data, and identified analysis code/configuration. The boundary is **research → retained evidence → reviewed findings → reproducible report generation**. Reproduction MUST NOT require repeating web searches, re-extracting documents with an AI model, reproducing review judgments, or obtaining identical AI responses. A fresh research run is new research, not reproduction of an old release.
 
 ### Goals
 
-- Discover relevant organizations systematically.
+The overall goal of this analysis to to discover all relevant organizations systematically and in a manner that is traceable and transparent. Specifically, for each organization:
 
-- For each organization, document legal identity, operating units, financial reporting boundaries, and relationships.
+- Document legal identity, operating units, financial reporting boundaries.
 
-- For each organization, describe attributable steelhead effort with explicit uncertainty and evidence.
+- Identify relationships with other organizations.
 
-- For each organization, compare documented effort with life stages and risk categories.
+- Describe attributable steelhead conservation effort with explicit uncertainty and evidence.
 
-- For each organization, reproduce dated evidence snapshots and document changes in methods, identity, and activity.
+- Compare documented conservation effort with steelhead life-history stages and risk categories.
+
+- Reproduce dated evidence snapshots and document changes in methods, identity, and activity.
 
 ### Scope
 
@@ -38,11 +40,11 @@ This census can only make use of publicly available data. Inclusion of individua
 
 ### Requirement conventions
 
-MUST is mandatory for the applicable phase; SHOULD is expected unless a documented exception is approved; MAY is optional. P0 denotes baseline release blockers, P1 denotes the next operational phase, and P2 denotes later analytical capability. IDs remain stable across revisions. Proposed methods in this version require owner approval before being treated as established census practice.
+MUST is mandatory for the applicable phase; SHOULD is expected unless a documented exception is approved; MAY is optional. P0 denotes baseline release blockers, P1 denotes the next operational phase, and P2 denotes later analytical capability. IDs remain stable across revisions. Proposed methods in this version require approval before being treated as established census practice.
 
 ## 2 Governance and operating model
 
-The census owner maintains scope, methods, and release decisions. Researchers maintain the evidence and structured records in the public Git repository. An independent reviewer, either a separate agent or a human, checks proposed findings and release readiness. The same actor must not author and independently accept the same finding. Researcher and steward functions may otherwise be combined; no separate human data steward or application approval system is required. Record reviewer identity and whether review was agent or human. The owner separately approves retained-data integration and authorizes publication; agent review is not human verification.
+The census owner maintains scope, methods, and release decisions. Researchers maintain the evidence and structured records in the public Git repository. An independent reviewer, either a separate agent or a human, checks proposed findings and release readiness. The same actor must not author and independently accept the same finding. The data steward manages the transfer of newly discover, reviewed, and approved findings into the Git repository. The researcher and steward functions may otherwise be combined; no separate human data steward or application approval system is required. Record reviewer identity and whether review was agent or human. The owner separately approves retained-data integration and authorizes publication; agent review is not human verification.
 
 Each release is a dated snapshot of what is known at a declared evidence cutoff, not a complete account of one calendar or fiscal year. Releases occur when useful, including multiple times in a year; no fixed annual publication or completeness requirement applies. Give each release a unique readable label such as `2026-11-11-r1`, its publication date, and its generating Git commit. The evidence cutoff is the date research closed, distinct from publication date and the periods covered by individual observations. Declare any activity window or comparison period separately, alongside search priorities. Git is the authoritative revision history for maintained records, methods, code, configuration, seed lists, and manually prepared geographic footprints. A clean generating commit and one release manifest identify the exact analysis state. Public commit links make changes inspectable; Git history records edits, while a short decision log explains consequential judgments.
 
@@ -54,7 +56,7 @@ Select role models and reasoning effort through version-controlled implementatio
 
 **GOV-01 |** P0 | The system MUST maintain the inclusion policy, codebook, named census owner, and a concise decision log in the public repository. Log substantive judgments such as exclusions, disputed classifications, identity merges, and attribution estimates, with supporting source references, date, and reason. Routine transcriptions and formatting changes need only Git history.
 
-**GOV-02 |** P0 | Each candidate MUST have one status: pending, included, excluded, or deferred. Included means reviewed and supported within the declared scope; pending means not yet resolved, and deferred means intentionally postponed with a reason. Exclusions and deferrals MUST retain their reasons and discovery provenance. Workflow status applies to candidates, not every field or source.
+**GOV-02 |** P0 | Each candidate organization MUST have one status: pending, included, excluded, or deferred. Included means reviewed and supported within the declared scope; pending means not yet resolved, and deferred means intentionally postponed with a reason. Exclusions and deferrals MUST retain their reasons and discovery provenance. Workflow status applies to candidates, not every field or source.
 
 **GOV-03 |** P0 | Proposed findings and release readiness MUST receive independent review by a separate agent or human, accurately identified. Material estimates and ambiguous identity decisions MUST be explicitly checked; routine observations MAY share one review record identifying the checked members and source scope, without per-cell approvals. Unchecked observations MUST NOT inherit acceptance unless an owner-approved sampling policy explicitly supports it. Retain accepted review metadata or a stable group-review reference with findings. Each release also requires passed applicable checks, stated limitations, and explicit owner publication authorization; owner integration authorization follows the README standing policy or explicit owner exceptions and is separate from publication.
 
@@ -145,8 +147,6 @@ The system analysis starts from the organization names in [seed-candidate-list.m
 
 Stop a research cycle when the planned priority searches and targeted gap checks are complete, or its declared effort limit is reached. Record the reason and the yield of recent search batches. Newly identified public sources or candidates may initiate additional logged searches. The owner reviews whether further searching is warranted and documents the remaining gaps.
 
-The earlier proposal of two batches of at least 25 results per jurisdiction MAY be tested in the pilot where appropriate. It is optional, not a universal release gate or statistical confidence bound. Preserve the P00–P06 labels for organizing search work without requiring identical effort in every jurisdiction.
-
 ## 5 Evidence and organizational analysis
 
 Evidence supports individual claims rather than an entire row by association. A legal filing can support identity and revenue while a program report supports work in an estuary. Neither automatically establishes the other's claims.
@@ -203,11 +203,11 @@ An activity is a documented program or coherent body of work, not necessarily ea
 
 ### Life stages and risks
 
-**BIO-01 |** P0 | Activities MUST support freshwater, estuary, and marine environments, with migration and transition links. Life stages MUST be drawn from Section 02, Steelhead Life Cycle, of the discussion document ([section source](../../../sections/02_life_cycle.tex) and its [life-stage table](../../../tables/life_stage_crosswalk.tex)). Those stages are **Egg / Alevin / Fry; Parr; Smolt; Early Marine Juvenile; Ocean-rearing Steelhead; Returning Adult; Spawner; Post-spawning Freshwater Holding and Downstream Migration; Post-spawning Ocean Recovery; Returning Repeat Spawner.** Unknown and cross-stage work MUST be supported. These are the discussion document’s analytical stage groupings, not a mandatory sequence for every fish. The codebook MUST record the source revision and retain a crosswalk when stage definitions change.
+**BIO-01 |** P0 | Activities MUST support freshwater, estuary, and/or marine environments, with migration and transition links. Life stages MUST be drawn from Section 02, Steelhead Life Cycle, of the discussion document ([section source](../../../sections/02_life_cycle.tex) and its [life-stage table](../../../tables/life_stage_crosswalk.tex)). Those stages are **Egg / Alevin / Fry; Parr; Smolt; Early Marine Juvenile; Ocean-rearing Steelhead; Returning Adult; Spawner; Post-spawning Freshwater Holding and Downstream Migration; Post-spawning Ocean Recovery; Returning Repeat Spawner.** Unknown and cross-stage work MUST be supported. These are the discussion document’s analytical stage groupings, not a mandatory sequence for every fish. The codebook MUST record the source revision and retain a crosswalk when stage definitions change.
 
 **BIO-02 |** P0 | **Biological risk categories and definitions MUST be drawn from Section 03, Biological Risk Across the Life Cycle, of the discussion document ([section source](../../../sections/03_biological_risk.tex)). OPEN DEPENDENCY: Section 03 is incomplete. Its completion and approval of the resulting risk codebook are prerequisites for running the full census. Each risk code MUST define inclusion, exclusion, examples, and evidence needs before operational use. The codebook MUST record the source revision and retain a crosswalk when risk definitions change.**
 
-**BIO-03 |** P0 | Activity coding MUST store affected geography or population, stage, environment, risk, intervention type, period, direct or indirect pathway, and source references. Add confidence and rationale for interpretive coding under EVD-05. Advocacy or research subject matter MUST NOT establish a demonstrated biological effect.
+**BIO-03 |** P0 | Activity coding MUST store affected geography or population, stage, environment, risk, intervention type, period, direct or indirect pathway, and source references. Add confidence and rationale for interpretive coding under EVD-05.
 
 **BIO-04 |** P0 | Multi-label classifications MUST NOT imply additive spending shares. Allocations MUST specify exclusive partitions or a separate overlap treatment and reconcile to at most 100 percent of the defined denominator.
 
@@ -278,7 +278,7 @@ The initial implementation uses readable structured research files in the public
 
 ### Repository organization and reuse
 
-Follow the implementation conventions in the [census README](../README.md). It places the organization registry and source index alongside per-organization evidence, financial histories, activity notes, and footprints under `sources/`, while retaining the cumulative seed list under `input-data/`. This is the census-specific source-storage convention; generated release bundles remain under the repository-root `output/ngo-census/<release-label>/` directory and untracked; the README also defines their static HTML and map-viewer entry points.
+Follow the implementation conventions in the [census README](../README.md). It places the organization registry and source index alongside per-organization evidence, financial histories, activity notes, and footprints under `sources/`, while retaining the cumulative seed list under `input-data/`. This is the census-specific source-storage convention; generated release bundles remain under `analysis/ngo-census/output/<release-label>/` directory and untracked; the README also defines their static HTML and map-viewer entry points.
 
 Git history MUST preserve maintained records and corrections, while source references establish the evidence behind findings. Previously reviewed historical observations MUST be reused when the source and interpretation remain unchanged. Record the reviewer, date, source version, and scope of review with the observation or a referenced group review; source-origin checking alone does not verify extracted values. Re-review is required for changed sources, errors or conflicts, or method/identity changes affecting interpretation, not merely because a new release is being prepared. Retain superseded evidence and observations so prior releases remain reproducible. Use one source index and one manifest per release rather than duplicating shared provenance.
 
@@ -396,12 +396,6 @@ Begin the full census only after Section 03 and its risk codebook are completed 
 ### Phase 3 Additional analysis when justified
 
 Add comparative risk analysis, sensitivity views, deeper funding-flow reconciliation, or network exploration as evidence and research needs justify them. Introduce a database, multiuser interface, or service targets only if the repository workflow becomes inadequate. Preserve the same public provenance, scope boundaries, and reproducibility controls.
-
-### Context register
-
-The methodological starting point is the Steelhead Organizations Chat, conversation ID 6ac57769-bca8-83e9-80cb-fbf6a05e0e02, including its separation of Organizations and Institutions — Non-NGO and its handling of relevance review before inclusion. The referenced baseline artifact is steelhead_nonprofit_census_updated.xlsx. Its authoritative copy, checksum, sheet inventory, and historical definitions are to be entered during Phase 0. Historical non-NGO records MUST be routed to the separate institutional census; only necessary relationship references remain here.
-
-This requirements version establishes a reviewable specification. Approval of a requirements draft does not approve estimates, certify organizational status, or establish biological outcomes. Subsequent changes require versioned decisions and traceable acceptance evidence.
 
 ## Provisional owner decision interface
 
