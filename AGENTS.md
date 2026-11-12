@@ -17,3 +17,6 @@ Use BibLaTeX with Biber and author-year citations (`\textcite{key}` or `\parenci
 # Editing and validation
 
 Review existing files before editing. Preserve modular organization and use descriptive labels for figures and tables. Build from the repository root with `latexmk -pdf main.tex`; generated files belong in `output/` and must remain untracked. An empty bibliography warning is expected until sources and citations are added. Report compilation failures and unresolved citations. Do not commit changes unless the user authorizes a commit.
+
+# NGO census output exception
+All NGO census work stays under `analysis/ngo-census/`. Its generated previews, reports, assets and coordinator journals belong in ignored `analysis/ngo-census/output/`, not the repository-root manuscript `output/` directory.
