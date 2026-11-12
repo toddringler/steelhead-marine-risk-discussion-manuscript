@@ -61,3 +61,6 @@ venv/
 
 # Provisional NGO census staging (local working material)
 /analysis/ngo-census/staging/
+
+# Generated NGO census previews, reports and coordinator journals
+/analysis/ngo-census/output/
