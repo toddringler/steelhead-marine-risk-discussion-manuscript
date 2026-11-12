@@ -55,6 +55,7 @@ analysis/ngo-census/
 │   └── org-tuwsi/
 │       └── activities.md
 ├── methods/
+├── output/                    # generated previews, reports, coordinator journals; ignored
 ├── scripts/
 ├── templates/
 ├── tests/
@@ -64,7 +65,7 @@ analysis/ngo-census/
 
 Organization names and document filenames in this tree illustrate placement; they do not assert that those filings or reports have been obtained. Add other source categories, such as `t3010/` and `web-captures/`, when appropriate. Avoid empty files and placeholder records that could be mistaken for completed research.
 
-For this census, `sources/` is the self-contained home for both retained original public documents and reviewed research records. This is the census-specific exception to the repository's general `data/raw/` and `data/metadata/` placement conventions. Originals and research interpretation remain visibly separate by filename and subdirectory. Generated reports and exports go under the repository-root `output/ngo-census/<release-label>/` directory and remain untracked.
+For this census, `sources/` is the self-contained home for both retained original public documents and reviewed research records. This is the census-specific exception to the repository's general `data/raw/` and `data/metadata/` placement conventions. Originals and research interpretation remain visibly separate by filename and subdirectory. Generated reports and exports go under `analysis/ngo-census/output/<release-label>/` directory and remain untracked.
 
 ## File roles
 
@@ -91,7 +92,7 @@ Keep entity identity and screening in `entities.csv`, financial values in the or
 
 ## Owner review by exception
 
-Standing owner instruction, adopted 2026-11-11: **assume owner approval unless an owner decision says otherwise**. Researchers and reviewers do not wait for per-entry owner approval before their ordinary addressed handoffs. Their proposals remain unaccepted research until independent review; standing approval is not a scientific review disposition.
+Researchers and reviewers do not wait for per-entry owner approval before their ordinary addressed handoffs. Their proposals remain unaccepted research until independent review; standing approval is not a scientific review disposition.
 
 The steward may integrate an independently accepted, current, evidence-supported, conflict-free subset under this standing approval, after validating its dependencies, expected retained state, and usable HTML preview. No owner decision JSON is required and no routine owner-response wait is imposed. Record the applicable policy revision, exact eligible change IDs, proposal inventory/digest, and approval basis in the handoff before integration. Distinguish **Approved by standing policy** from **Explicit owner acceptance** and from **Held — unresolved**; never invent a human inspection or signature.
 
@@ -121,7 +122,7 @@ Track `current_role` in `staging/handoff.md`: `researcher`, `reviewer`, `steward
 
 1. **Researcher:** Initiate the shared local HTML review page from the staging records before handoff, labeled **research proposal**. Read and reuse retained `sources/` records. Put new documents and proposed findings in `staging/proposed-changes/`; use paths relative to the census directory to identify their intended destinations, such as `proposed-changes/sources/org-wildfishcon/financial-history.csv`. Record the assignment, organization IDs, starting commit, additions/corrections, proposed shared-index entries, checks, and gaps in `handoff.md`. Never edit retained records directly as part of this role.
 2. **Reviewer:** Refresh that same page from `review.md`, labeled **reviewed proposal**, exposing independent dispositions and correction requests. Check the exact proposed changes against retained evidence and record accepted, correction requested, deferred, or rejected for each substantive proposal in `review.md`. Identify the reviewed revision using a Git commit if authorized, otherwise file paths and content hashes recorded in the review. Changed reviewed content must be checked again; prior review does not automatically apply to later edits.
-3. **Steward:** Complete and validate the same owner-facing HTML integration preview, labeled **ready for owner signoff**, at repository-root `output/ngo-census/previews/owner-review/index.html` with a broad summary, file/entry-level before-and-after details, evidence links, reviewer dispositions, and an exact proposal digest. Apply the owner-review-by-exception policy to that exact accepted subset before integration; record standing approval or applicable explicit owner decisions, and hold unresolved exceptions. Check that current destination records still match the starting state or resolve intervening changes explicitly. Retain source IDs and correct destination references, run applicable validation, and record what was integrated and the integration commit when authorized. Staging is not moved wholesale into `sources/`.
+3. **Steward:** Complete and validate the same owner-facing HTML integration preview, labeled **ready for owner signoff**, at repository-root `analysis/ngo-census/output/previews/owner-review/index.html` with a broad summary, file/entry-level before-and-after details, evidence links, reviewer dispositions, and an exact proposal digest. Apply the owner-review-by-exception policy to that exact accepted subset before integration; record standing approval or applicable explicit owner decisions, and hold unresolved exceptions. Check that current destination records still match the starting state or resolve intervening changes explicitly. Retain source IDs and correct destination references, run applicable validation, and record what was integrated and the integration commit when authorized. Staging is not moved wholesale into `sources/`.
 4. **Owner:** Inspect any stage as desired and optionally supply exceptions or explicit acceptance through chat or the decision JSON. Routine handoffs and eligible integration do not require per-entry owner action. Resolve consequential questions that the agents cannot settle within approved methods before the affected material is integrated. Deferred material may remain outside accepted storage while other accepted work proceeds. Publication still requires the owner's separate explicit authorization of the reviewed report and selected commit; integrating research does not publish it.
 5. **Close and reset:** Record a disposition for every proposal. Preserve unresolved work in an explicit deferred record with retrievable evidence; do not discard it during cleanup. Before clearing/reusing staging, retain its handoff, review, and disposition in Git history through an authorized commit (including source material needed to understand deferred work). The owner may authorize integration, a history-preservation commit, and a later cleanup commit together in the integration signoff. The steward first records closure and preserves the completed handoff, review, and proposal dispositions in the history-preservation commit. In the later authorized cleanup commit, remove the active handoff, review, and all proposal files, after preserving deferred evidence and recording deferred work. Leave staging empty for the next assignment. If committing is not authorized yet, leave staging intact and do not start another assignment.
 
@@ -137,7 +138,7 @@ Standing approval authorizes only eligible integration. Any request for addition
 
 ### Shared review page across roles
 
-The researcher initiates one evolving HTML page at repository-root `output/ngo-census/previews/owner-review/index.html`; the reviewer and steward refresh that same page on their sequential turns. Use one shared renderer, not three independently authored HTML interpretations. Its source is `staging/handoff.md`, `staging/review.md` when present, staged proposals, and relevant retained before-values. The provisional renderer is [scripts/render-staging-review.py](scripts/render-staging-review.py), using [templates/staging-review.html](templates/staging-review.html). HTML and preview assets are derived, untracked output, never the authoritative record of findings, review, or approval.
+The researcher initiates one evolving HTML page at repository-root `analysis/ngo-census/output/previews/owner-review/index.html`; the reviewer and steward refresh that same page on their sequential turns. Use one shared renderer, not three independently authored HTML interpretations. Its source is `staging/handoff.md`, `staging/review.md` when present, staged proposals, and relevant retained before-values. The provisional renderer is [scripts/render-staging-review.py](scripts/render-staging-review.py), using [templates/staging-review.html](templates/staging-review.html). HTML and preview assets are derived, untracked output, never the authoritative record of findings, review, or approval.
 
 Label the page **research proposal**, **reviewed proposal**, or **ready for owner signoff**, and show the current role, assignment/seed IDs, source base commit, generation time, and exact input revision/hashes. Research-stage findings are unreviewed; reviewer dispositions come only from `review.md`. Lead-only findings remain distinct from accepted retained findings. A reviewed proposal may contain corrections or deferrals; the label does not imply acceptance of everything. Only the steward can mark a fully reconciled integration subset ready and display its final approval digest. The legacy `signoff` stage label means readiness for integration evaluation, not a mandatory owner-response wait under the standing policy.
 
@@ -211,10 +212,10 @@ For subsequent research:
 
 ## Generated output and public viewing
 
-Each generated release lives under `output/ngo-census/<release-label>/`, relative to the repository root. For example:
+Each generated release lives under `analysis/ngo-census/output/<release-label>/`, relative to the repository root. For example:
 
 ```text
-output/ngo-census/2026-11-11-r1/
+analysis/ngo-census/output/2026-11-11-r1/
 ├── index.html
 ├── map.html
 ├── assets/
@@ -255,8 +256,8 @@ Reports are evidence snapshots published when useful, potentially several times 
 Routine research and public report publication are separate actions:
 
 1. **Research:** Add documents, update the source index and reviewed findings, then commit and push whenever useful. Pending research can remain pending. Ordinary pushes may run validation but must not create a GitHub Release, deploy a census report, or change the public latest-release link. New public repository commits do not mean the published evidence snapshot has changed.
-2. **Preview:** When accumulated changes merit publication, select an exact committed state and evidence cutoff. Generate and inspect a local report/map preview, clearly labeled as a non-release. Complete required reviews and correct problems in new commits; regenerate the preview from the final candidate commit. Preview artifacts belong in an untracked location such as `output/ngo-census/previews/<commit>/` and must not enter the public release archive or latest-release listing.
-3. **Publish explicitly:** For the prototype, use a manually triggered GitHub Actions workflow, provisionally named **Publish census release**. Supply the full generating commit hash, a unique release label, and evidence cutoff, plus any declared activity window or comparison period. The workflow checks out that exact commit, validates it and required reviews, and builds the release bundle under `output/ngo-census/<release-label>/`. Record all supplied parameters in the manifest; do not silently use the latest branch state.
+2. **Preview:** When accumulated changes merit publication, select an exact committed state and evidence cutoff. Generate and inspect a local report/map preview, clearly labeled as a non-release. Complete required reviews and correct problems in new commits; regenerate the preview from the final candidate commit. Preview artifacts belong in an untracked location such as `analysis/ngo-census/output/previews/<commit>/` and must not enter the public release archive or latest-release listing.
+3. **Publish explicitly:** For the prototype, use a manually triggered GitHub Actions workflow, provisionally named **Publish census release**. Supply the full generating commit hash, a unique release label, and evidence cutoff, plus any declared activity window or comparison period. The workflow checks out that exact commit, validates it and required reviews, and builds the release bundle under `analysis/ngo-census/output/<release-label>/`. Record all supplied parameters in the manifest; do not silently use the latest branch state.
 4. **Archive and deploy:** Only after successful checks and explicit publication authorization, publish the frozen bundle and manifest as GitHub Release assets and deploy the static report/map to GitHub Pages. Update the landing page only when that release is available. If validation or publication fails, keep the existing published release in place. Reusing an existing release label must not overwrite its contents; corrections require a new label. Previously published release addresses and archives remain unchanged.
 
 The manual workflow invocation is the explicit request to publish the selected reviewed state; committing research, pushing, or generating a preview is not. This describes the intended prototype mechanism, not an already configured GitHub Actions workflow.
@@ -271,12 +272,12 @@ The provisional staging-preview renderer and synthetic tests are available now; 
 
 The shared HTML preview supports per-proposal accept/reject/defer/request-changes choices and comments. Download the choices and give the file to the steward with an instruction to use it. Entries are not saved automatically. No file is required for default approval of an eligible reviewed subset. See [decision-file handling](methods/staging-record-format.md#owner-decision-entry) for validation and handoff rules. This interface does not perform Git operations or bypass review.
 
-### Existing extract-based pilot
-
-The Wild Salmon Center demonstration initially used selective researcher extracts. It tests handoffs and interpretation, but does not demonstrate the default original-file collection/reuse requirement. Do not silently relabel its extracts as originals or treat earlier review as acceptance of newly collected files. Filling this gap requires a separately addressed research correction, actual source acquisition/capture, updated provenance/hashes and renewed review of affected proposals.
-
 ## Coordinated agent execution
 
 Assign a bounded organization task to the [coordinator](requirements/coordinator-agent-instructions.md) to manage researcher, independent reviewer, corrections and steward without manually relaying chats. One worker executes at a time; the coordinator only waits/monitors while it runs. Completion and addressed file handoffs must both be verified before dispatching the next role. Independent reviewers get fresh sessions. Default limit: two substantive correction rounds, then defer affected work or escalate a concise owner question.
 
-The coordinator keeps an ignored resumable scheduling journal under `output/ngo-census/coordinator/state.json`, uses standing owner approval for eligible integration, and does not gain commit, cleanup or publication authority. No unattended service is installed. The first test uses isolated synthetic data under `output/ngo-census/coordinator-smoke/`, not live staging or retained census evidence.
+The coordinator keeps an ignored resumable scheduling journal under `analysis/ngo-census/output/coordinator/state.json`, uses standing owner approval for eligible integration, and does not gain commit, cleanup or publication authority. No unattended service is installed. The first test uses isolated synthetic data under `analysis/ngo-census/output/coordinator-smoke/`, not live staging or retained census evidence.
+
+## Output location correction
+
+All census work, including generated HTML, assets, exports and coordinator journals, lives under `analysis/ngo-census/`. Generated material uses its ignored `output/` subdirectory. Repository-root `output/` is for manuscript/LaTeX outputs. Earlier immutable handoffs, review records and hash inventories retain their historical paths; map the old `output/ngo-census/` prefix to `analysis/ngo-census/output/` when locating moved generated files. Their contents were preserved during relocation rather than rewriting reviewed history.

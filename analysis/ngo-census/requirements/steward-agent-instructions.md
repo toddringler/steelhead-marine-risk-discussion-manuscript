@@ -2,20 +2,6 @@
 
 Status: Proposed for pilot use
 
-## Owner review by exception
-
-Standing owner instruction, adopted 2026-11-11: **assume owner approval unless an owner decision says otherwise**. Researchers and reviewers do not wait for per-entry owner approval before their ordinary addressed handoffs. Their proposals remain unaccepted research until independent review; standing approval is not a scientific review disposition.
-
-The steward may integrate an independently accepted, current, evidence-supported, conflict-free subset under this standing approval, after validating its dependencies, expected retained state, and usable HTML preview. No owner decision JSON is required and no routine owner-response wait is imposed. Record the applicable policy revision, exact eligible change IDs, proposal inventory/digest, and approval basis in the handoff before integration. Distinguish **Approved by standing policy** from **Explicit owner acceptance** and from **Held — unresolved**; never invent a human inspection or signature.
-
-Owner-supplied chat instructions and validated `owner-decisions.json` entries override the default for the named proposals. Accept records explicit acceptance; reject excludes; defer preserves for later; request changes routes a correction with the owner's comment. Unmentioned proposals remain eligible for the standing default if all review and validation conditions pass. Do not request a decision file just to confirm that there are no exceptions. If the owner says a decision file is forthcoming, wait on its affected scope. Preserve all supplied decisions and review history; conflicting owner instructions require clarification for the affected scope.
-
-Unreviewed, rejected, correction-requested, deferred, stale, unsupported, or conflicted proposals are not integration-eligible. Unresolved researcher/reviewer disagreements, material identity/method/estimate questions, and unresolved owner exceptions hold the affected proposals and their dependents. Explicit owner acceptance does not bypass independent review. Other eligible proposals may proceed. An accepted lead stays a lead.
-
-After substantive revision, obtain renewed independent review and regenerate proposal hashes/digest; reevaluate eligibility under this policy. Do not silently discard a prior owner rejection, deferral, or correction request because its exported hash became stale: keep that scope on hold until the exception is demonstrably satisfied or the owner resolves it. Stale exports cannot authorize new content. Preserve the original export and validation revision before editing the handoff.
-
-Standing approval covers eligible retained-data integration only. It does not authorize commits, staging cleanup, agent launches, pushing, or publication. Existing explicit permissions for those actions remain necessary. The serial execution and addressed-handoff rules are unchanged. The owner can suspend or narrow this policy at any time.
-
 ## Purpose and boundaries
 
 Prepare a complete, inspectable integration proposal for one staged assignment, let the owner inspect it in HTML, and integrate only the reviewed and owner-authorized changes into retained census records. Read repository `AGENTS.md`, the [requirements](Steelhead_Organization_Census_Requirements.md), [README](../README.md), [researcher instructions](researcher-agent-instructions.md), and [reviewer instructions](reviewer-agent-instructions.md).
@@ -48,7 +34,7 @@ Do not reward volume of research or objections. Integrate the supported, reviewe
 
 ## Required owner review HTML
 
-Before changing retained storage, complete the shared static review page initiated by the researcher and refreshed by the reviewer at repository-root `output/ngo-census/previews/owner-review/index.html`. This is an untracked, local integration preview, not a census release or public Pages deployment. Reuse this location and the same shared renderer for the one active assignment. Generate from authoritative staging records and relevant retained before-values, not from another agent's HTML. Label it **ready for owner signoff** only after reconciling all dispositions, verifying the selected subset and dependencies, and checking its content and links. Earlier **research proposal** and **reviewed proposal** views are inspectable but not signoff-ready. If the earlier roles could not render the page, resolve that recorded dependency with the common renderer before requesting signoff; do not create a separate competing page. Keep supporting preview assets beneath the same directory; do not add generated HTML to staging or retained source records.
+Before changing retained storage, complete the shared static review page initiated by the researcher and refreshed by the reviewer at repository-root `analysis/ngo-census/output/previews/owner-review/index.html`. This is an untracked, local integration preview, not a census release or public Pages deployment. Reuse this location and the same shared renderer for the one active assignment. Generate from authoritative staging records and relevant retained before-values, not from another agent's HTML. Label it **ready for owner signoff** only after reconciling all dispositions, verifying the selected subset and dependencies, and checking its content and links. Earlier **research proposal** and **reviewed proposal** views are inspectable but not signoff-ready. If the earlier roles could not render the page, resolve that recorded dependency with the common renderer before requesting signoff; do not create a separate competing page. Keep supporting preview assets beneath the same directory; do not add generated HTML to staging or retained source records.
 
 The page must have two levels of inspection:
 
