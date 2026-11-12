@@ -46,15 +46,17 @@ Whole-file acceptance covers the whole file: split through addressed correction 
 
 ## 5. Owner review by exception
 
-**Assume owner approval unless an owner decision says otherwise.** Routine handoffs/eligible integration require no owner click, response wait or JSON file.
+**Assume approval of individual entries unless an owner decision says otherwise; integration requires one explicit owner go-ahead for the prepared batch.** Research/review handoffs need no routine owner response. After review, steward reconciles the eligible subset, prepares the inspection HTML and freezes its inventory/digest, then hands off to owner and stops **before changing retained sources or shared records**. Provide the exact subset/digest and usable HTML URL/path. Silence means wait, not permission to integrate.
 
-Integration eligibility requires independent acceptance, current evidence/state, resolved conflicts and satisfied dependencies. Record policy revision, selected IDs and inventory/digest (§6), labeling **Approved by standing policy**, **Explicit owner acceptance** or **Held — unresolved**. Standing policy is neither scientific acceptance nor personal owner inspection/signature.
+The owner may say “proceed with the reviewed batch” in chat; no per-entry clicks or JSON file are required. Bind that statement to the presented assignment/subset/digest and preserve its date/content. A general assignment or standing entry policy is not this checkpoint. After owner response and a stopped, addressed handoff back to steward, revalidate current state/reviews/dependencies and apply only the authorized eligible subset. Material proposal, evidence, review, dependency or before-state changes require affected review and a renewed checkpoint. Owner exclusions that change the selected subset require a revised inventory/digest and confirmation of that exact subset before integration.
+
+Integration eligibility requires independent acceptance, current evidence/state, resolved conflicts and satisfied dependencies. Record policy revision, selected IDs and inventory/digest (§6), distinguishing entry-level **No owner exception**, **Explicit owner acceptance** and **Held — unresolved**, plus batch-level **Awaiting owner go-ahead** or **Owner authorized integration**. Standing entry policy is neither batch permission, scientific acceptance nor personal owner inspection/signature.
 
 Owner chat instructions/validated exports override defaults for named scope: reject excludes, defer preserves, request-changes routes correction, accept records explicit acceptance without bypassing review. Unmentioned eligible proposals retain the default. Clarify conflicting directions; hold scope when a decision/file is promised. Do not demand a no-exceptions file or search personal downloads without authorization.
 
 Validate exports against exact context **before editing handoff/proposals**. Preserve original content/hash, accompanying instruction and successful validation revision. Later edits change hashes, not that validation history. A self-reported owner name is not authentication. Stale exports cannot approve revisions; **unresolved prior rejections**, deferrals and correction requests remain held until satisfied or owner-resolved, **not silently erased** by hash changes.
 
-Standing approval covers eligible integration only. Dispatch needs an authorized coordinated/role assignment; commits, cleanup, pushing, external communications and publication each need applicable explicit authorization. Honor existing permissions without asking again. On owner pause/narrowing, stop dispatch and obtain safe worker stop before reporting execution stopped.
+Standing entry approval applies only within an explicitly authorized prepared batch. Dispatch needs an authorized coordinated/role assignment; commits, cleanup, pushing, external communications and publication each need applicable explicit authorization. Honor existing permissions without asking again. On owner pause/narrowing, stop dispatch and obtain safe worker stop before reporting execution stopped.
 
 ## 6. Shared HTML inspection and proposal identity
 
@@ -73,7 +75,7 @@ Before integration, steward verifies usable page/evidence links. Rendering failu
 
 ## 7. Steward integration and durable retention
 
-Apply §§5–6 to select/reconcile the eligible subset. Hold unresolved items/dependents; never overwrite intervening edits or integrate later unreviewed content.
+Apply §§5–6 to prepare the eligible subset and stop at the owner checkpoint. Resume integration only after the exact batch receives owner go-ahead and current-state checks pass. Hold unresolved items/dependents; never overwrite intervening edits or integrate later unreviewed content.
 
 Apply focused changes, not staging wholesale. Store each accepted original/capture once, verify copied hashes, update source/entity/seed/discovery/decision references and preserve originals/supersession history. Keep findings separate from evidence. Retain review ID, reviewer identity/type/date, checked scope, source versions/locators and runtime provenance directly or through group-review references; staging-only links are insufficient.
 
